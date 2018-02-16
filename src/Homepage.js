@@ -19,23 +19,21 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-      <Router >
-        <div>
-          <ul>
-          <li><Link to="/">Home Page</Link></li>
-          <li><Link to="/raptool">Rap Tool</Link></li>
-          <li><Link to="/videos">Videos</Link></li>
-          <li><Link to="/about">About</Link></li>
-          </ul>
-          <Route exact path="/" component={Homepagecontent} />
-          <Route path="/raptool" component={Raptools} />
-          <Route path="/videos" component={Videos} />
-          <Route path="/about" component={About} />
+        <Router >
+          <div>
+            <ul>
+              <li><Link to="/">Home Page</Link></li>
+              <li><Link to="/raptool">Rap Tool</Link></li>
+              <li><Link to="/videos">Videos</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
+            <Route exact path="/" component={Homepagecontent} />
+            <Route path="/raptool" component={Raptools} />
+            <Route path="/videos" component={Videos} />
+            <Route path="/about" component={About} />
           </div>
-      </ Router>
-
-
-       
+        </ Router>
+        <p id = "testme">Test words</p>
       </div>
     );
   }
