@@ -21,12 +21,12 @@ class Homepage extends React.Component {
       <div>
         <Router >
           <div>
-            <ul>
-              <li><Link to="/">Home Page</Link></li>
-              <li><Link to="/raptool">Rap Tool</Link></li>
-              <li><Link to="/videos">Videos</Link></li>
-              <li><Link to="/about">About</Link></li>
-            </ul>
+            <div className = 'navbar'>
+                <div className = 'navbutton'><Link to="/">Home Page</Link></div>
+                <div className = 'navbutton'><Link to="/raptool">Rap Tool</Link></div>
+                <div className = 'navbutton'><Link to="/videos">Videos</Link></div>
+                <div className = 'navbutton'><Link to="/about">About</Link></div>
+            </div>
             <Route exact path="/" component={Homepagecontent} />
             <Route path="/raptool" component={Raptools} />
             <Route path="/videos" component={Videos} />

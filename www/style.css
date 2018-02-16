@@ -5,3 +5,25 @@
 #testme {
   background-color: green;
 }
+
+.navbar {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.navbutton{
+	margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.navbutton:hover {
+    background-color: #555;
+    color: white;
+}
+
