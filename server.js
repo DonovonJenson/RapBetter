@@ -1,11 +1,11 @@
 const express = require('express');
+var mongoose = require('mongoose');
+var db = mongoose.connection;
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const app = express();
-var mongoose = require('mongoose');
 
-var db = mongoose.connection;
 
 //This line will need to be updated at deployment
 mongoose.connect('mongodb://localhost/rapbetter');
@@ -14,12 +14,13 @@ db.once('open', function() {
   console.log('mongo connected!')
 });
 
-var rhymeSchema = mongoose.Schema ({
+module.exports.rhymeSchema = mongoose.Schema ({
   coreWord: {type: String, unique: true}, 
   rhymeSet: Array
 })
 
-var Rhymeset = mongoose.model('Rhymeset',rhymeSchema);
+const {getRhymes} = require('./populateWords.js')
+
  
 const compiler = webpack(webpackConfig);
  
@@ -40,3 +41,5 @@ const server = app.listen(3000, function() {
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });
+
+getRhymes('hello')
