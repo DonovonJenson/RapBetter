@@ -3,6 +3,23 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const app = express();
+var mongoose = require('mongoose');
+
+var db = mongoose.connection;
+
+//This line will need to be updated at deployment
+mongoose.connect('mongodb://localhost/rapbetter');
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('mongo connected!')
+});
+
+var rhymeSchema = mongoose.Schema ({
+  coreWord: {type: String, unique: true}, 
+  rhymeSet: Array
+})
+
+var Rhymeset = mongoose.model('Rhymeset',rhymeSchema);
  
 const compiler = webpack(webpackConfig);
  
