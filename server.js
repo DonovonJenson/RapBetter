@@ -20,6 +20,7 @@ module.exports.rhymeSchema = mongoose.Schema ({
 })
 
 const {getRhymes} = require('./populateWords.js')
+const {getDatamuseRhymes, Rhymeset} = require('./datamuseWordPopulation.js')
 
  
 const compiler = webpack(webpackConfig);
@@ -36,10 +37,21 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
  
+
+app.get('/getRhyme', (req, res) =>{
+  Rhymeset.aggregate(
+   [ { $sample: { size: 1 } } ])
+  .then((data)=>{
+    console.log(data);
+    res.send(data);
+  })
+})
+
+
 const server = app.listen(3000, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });
 
-getRhymes('hello')
+//getDatamuseRhymes('how')

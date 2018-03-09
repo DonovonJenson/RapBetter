@@ -10,7 +10,6 @@ module.exports.getRhymes = (rhymeWord) => {
 	axios.get(brainURL)
 	.then((response) =>{
 		var body = response.data
-		console.log(body[0].freq)
 		if (body[0].freq > 17){
 			var zero = body[0].word;
 			body.shift();
