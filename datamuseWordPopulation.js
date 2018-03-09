@@ -1,7 +1,7 @@
 const axios = require('axios')
 const mongoose = require('mongoose');
 const {rhymeSchema} = require('./server.js');
-var Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
+module.exports.Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
 
 
 //  Sort criteria -> 
@@ -38,7 +38,7 @@ module.exports.getDatamuseRhymes = (rhymeWord) => {
 		newRhymes.save((err,newRhymes)=>{
 				console.log(err,newRhymes)
 		})
-		
+
 
 	})
 }
