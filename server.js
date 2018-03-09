@@ -20,6 +20,7 @@ module.exports.rhymeSchema = mongoose.Schema ({
 })
 
 const {getRhymes} = require('./populateWords.js')
+const {getDatamuseRhymes} = require('./datamuseWordPopulation.js')
 
  
 const compiler = webpack(webpackConfig);
@@ -42,4 +43,4 @@ const server = app.listen(3000, function() {
   console.log('Example app listening at http://%s:%s', host, port);
 });
 
-getRhymes('hello')
+getDatamuseRhymes('how')
