@@ -24,5 +24,9 @@
     "react-router-dom": "^4.2.2",
     "webpack": "^3.11.0",
     "webpack-dev-middleware": "^2.0.5"
+  },
+  "devDependencies": {
+    "file-loader": "^1.1.11",
+    "url-loader": "^1.0.1"
   }
 }
