@@ -22,10 +22,11 @@ class Homepage extends React.Component {
         <Router >
           <div>
             <div className = 'navbar'>
-                <div className = 'navbutton'><Link to="/">Home Page</Link></div>
-                <div className = 'navbutton'><Link to="/raptool">Rap Tool</Link></div>
-                <div className = 'navbutton'><Link to="/videos">Videos</Link></div>
-                <div className = 'navbutton'><Link to="/about">About</Link></div>
+            <div className='navplaceholder item-flex-grow'></div>
+                <div><Link className='navbutton' to="/">Home Page</Link></div>
+                <div><Link className='navbutton' to="/raptool">Rap Tool</Link></div>
+                <div><Link className='navbutton' to="/videos">Videos</Link></div>
+                <div><Link className='navbutton' to="/about">About</Link></div>
             </div>
             <Route exact path="/" component={Homepagecontent} />
             <Route path="/raptool" component={Raptools} />
@@ -33,7 +34,7 @@ class Homepage extends React.Component {
             <Route path="/about" component={About} />
           </div>
         </ Router>
-        <p id = "testme">Test words</p>
+       
       </div>
     );
   }
