@@ -18,6 +18,14 @@ module.exports = {
           'babel-loader',
         ],
       },
+      {
+       test: /\.(png|jpg|gif)$/,
+       loader: 'url-loader',
+       options: {
+         limit: '25000'
+       }
+      }
     ],
+
   },
 };

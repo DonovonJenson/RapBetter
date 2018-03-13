@@ -1,5 +1,4 @@
 import React from 'react';
-//import {rapmic} from './images/rapmic.jpg'
 
 var Homepagecontent = () => (
   <div>
