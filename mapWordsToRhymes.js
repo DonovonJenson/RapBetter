@@ -17,7 +17,6 @@ var Word = mongoose.model('Word', wordSchema);
   Word.aggregate(
    [ { $sample: { size: 1 } } ])
   .then((data)=>{
-  	console.log(data[0].word)
   	getDatamuseRhymes(data[0].word)
   })
 
