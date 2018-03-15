@@ -13,10 +13,28 @@ var wordSchema = mongoose.Schema({
 });
 var Word = mongoose.model('Word', wordSchema);
 
+function mapWordToRhyme (){
 
-  Word.aggregate(
+	  Word.aggregate(
    [ { $sample: { size: 1 } } ])
   .then((data)=>{
-  	getDatamuseRhymes(data[0].word)
+  	getDatamuseRhymes(data[0].word);
+  	Word.findByIdAndRemove(data[0]._id, (err, succ) => {
+  		if (err){
+  			console.log(err)
+  		} else {
+  			console.log(succ);
+				Word.count(function (err, count) {
+			    if (!err && count > 0) {
+			        setTimeout(mapWordToRhyme, 500);
+			    } 
+			  })
+  		}
+  	});
   })
+
+}
+
+mapWordToRhyme();
+
 
