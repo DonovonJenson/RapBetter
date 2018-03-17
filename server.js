@@ -14,13 +14,12 @@ db.once('open', function() {
   console.log('mongo connected!')
 });
 
-module.exports.rhymeSchema = mongoose.Schema ({
+var rhymeSchema = mongoose.Schema ({
   coreWord: {type: String, unique: true}, 
   rhymeSet: Array
 })
 
-const {getRhymes} = require('./populateWords.js')
-const {getDatamuseRhymes, Rhymeset} = require('./datamuseWordPopulation.js')
+var Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
 
  
 const compiler = webpack(webpackConfig);
@@ -53,5 +52,3 @@ const server = app.listen(3000, function() {
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });
-
-//getDatamuseRhymes('how')

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 var Homepagecontent = () => {
   return (
   <div className="homepage-grid-container">
@@ -68,6 +67,7 @@ var Homepagecontent = () => {
   
 
     {/*<div className="home-page-box">
+
     <div>
       <img className="home-page-box-image" src="http://lorempixel.com/output/abstract-q-c-300-300-7.jpg"/>
       </div>
