@@ -1,7 +1,11 @@
 const axios = require('axios')
 const mongoose = require('mongoose');
-const {rhymeSchema} = require('./server.js');
-module.exports.Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
+
+var rhymeSchema = mongoose.Schema ({
+  coreWord: {type: String, unique: true}, 
+  rhymeSet: Array
+})
+var Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
 
 
 //  Sort criteria -> 
@@ -9,9 +13,9 @@ module.exports.Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
 //  #2. 50% score, 50% rhyme frequency 
 
 module.exports.getDatamuseRhymes = (rhymeWord) => {
+	//Refactor to use Given word
 	//Rhymebrain results 
 	var datamuseURL = 'http://api.datamuse.com/words?rel_rhy=' + rhymeWord + '&md=f';
-
 
 	axios.get(datamuseURL)
 	.then((response) =>{
@@ -31,9 +35,8 @@ module.exports.getDatamuseRhymes = (rhymeWord) => {
 			}
 			}
 		})
-		var currentRhyme = body[0].word;
-		var rhymes = [body[1].word,body[2].word,body[3].word,body[4].word]
-
+		var currentRhyme = rhymeWord;
+		var rhymes = [body[0].word,body[1].word,body[2].word,body[3].word]
 		var newRhymes = new Rhymeset({coreWord:currentRhyme,rhymeSet: rhymes})
 		newRhymes.save((err,newRhymes)=>{
 				console.log(err,newRhymes)
