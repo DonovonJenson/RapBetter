@@ -9,8 +9,6 @@ Setup
  
 ```
 npm install
-
-
 ```
 
 Usage
