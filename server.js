@@ -5,6 +5,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const app = express();
+const path = require('path');
 
 
 //This line will need to be updated at deployment
@@ -35,7 +36,6 @@ app.use(webpackDevMiddleware(compiler, {
   },
   historyApiFallback: true,
 }));
- 
 
 app.get('/getRhyme', (req, res) =>{
   Rhymeset.aggregate(
@@ -43,6 +43,14 @@ app.get('/getRhyme', (req, res) =>{
   .then((data)=>{
     console.log(data);
     res.send(data);
+  })
+})
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'www/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
   })
 })
 
