@@ -9,7 +9,10 @@ const path = require('path');
 
 
 //This line will need to be updated at deployment
-mongoose.connect('mongodb://localhost/rapbetter');
+//mongoose.connect('mongodb://localhost/rapbetter');
+var mongooseURI = process.env.MONGODB_URI || 'mongodb://localhost/rapbetter'
+mongoose.connect(mongooseURI);
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('mongo connected!')
