@@ -290,7 +290,6 @@ body {
 .item-videos-text--course-text {
   font-size: 2em;
   color: #b32d00;
-
 }
 
 .item-footer__text {
@@ -305,9 +304,42 @@ body {
 
 
 
+/*VIDEOS PAGE CSS*/
+.inner-pages-title-center {
+  justify-content: center;
+  margin: 0 auto;
+}
 
+.main-title-inner-pages {
+  margin: 20px 20px 50px 20px;
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 30px;
+  height: 140px;
+  border: 12px solid var(--trim-color);
+  border-radius: 90px;
+  display: flex;
+  justify-content: center;
+}
 
+.main-title-inner-pages--content {
 
+}
+
+.main-flexbox-inner-pages {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.main-flexbox-inner-pages__specfic-item {
+  padding: 20px;
+  border: 2px solid var(--trim-color);
+  border-radius: 5px;
+
+}
 
 
 

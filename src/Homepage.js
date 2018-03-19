@@ -3,16 +3,18 @@ import React from 'react';
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import Navbar from './navbar.js';
-import Raptools from './raptool.js';
-import Videos from './videos.js';
-import About from './about.js';
-import Homepagecontent from './homepagecontent.js';
+import Navbar from './navbar.jsx';
+import Raptools from './raptool.jsx';
+import Videos from './videoList.jsx';
+import About from './about.jsx';
+import Homepagecontent from './homepagecontent.jsx';
 
 class Homepage extends React.Component {
   constructor() {
     super();
     this.state = {
+      videosOnVidsPage: [ 'ge0KWuwf1gA', '1auFCLoGOKs', 'dSM8EmIqpfE', 'QL-QFRKI0w4', '1auFCLoGOKs', 'GgYgX6xITIg', 'UXNfwCOSPTA', 'hJTWgEEviHc' ]
+
     };
   }
  
@@ -31,16 +33,18 @@ class Homepage extends React.Component {
             <div className="main-nav-content">
             <Route exact path="/" component={Homepagecontent} />
             <Route path="/raptool" component={Raptools} />
-            <Route path="/videos" component={Videos} />
+            {/* <Route path="/videos" component={Videos} /> */}
+            <Route path="/videos" render={() =><Videos videosToShow={this.state.videosOnVidsPage} /> } />
             <Route path="/about" component={About} />
             </div>
           </div>
-        </Router>
-       
+        </Router> 
       </div>
     );
   }
 }
+
+
 
 
 export default Homepage;
