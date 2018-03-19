@@ -29,7 +29,7 @@ class Videos extends React.Component {
           <div className="header-titles-container__subheader-title">Here is risen the lyricism</div>
         </div>
       </div>
-        <div className={"main-flexbox-inner-pages"}>
+        <div className="main-flexbox-inner-pages">
           {this.state.videosOnVidsPage.map((item, i) => <VideoItem options={this.state.opts} video={item} key={i}/>)}
         </div>
       </div>
