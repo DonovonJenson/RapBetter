@@ -54,8 +54,8 @@ app.get('/*', function(req, res) {
   })
 })
 
-
-const server = app.listen(3000, function() {
+var portNumber = process.env.port || 3000;
+const server = app.listen(portNumber, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
