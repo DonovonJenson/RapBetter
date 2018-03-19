@@ -23,8 +23,6 @@
 */
 
 
-
-
 body {
   /*background-color: black;*/
   background-image: url('./images/test2.jpg');
@@ -32,16 +30,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
-/*hr {
-  height: 9px;
-  background: linear-gradient(to right, red , yellow);
-  border-color: var(--trim-color);
-  margin-left: 25%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-
-}*/
 
 /*NAV GRID*/
 .main-nav-header { grid-area: nav-header; }
@@ -55,7 +43,6 @@ body {
   grid-gap: 10px;
   padding: 10px;
 }
-
 
 .main-grid-item {
 
@@ -215,8 +202,8 @@ body {
   -webkit-box-shadow: inset 0px 10px 10px white;
   -o-box-shadow: inset 0px 10px 10px white;
 
-  -webkit-transition: 2s;
-    transition: 2s;
+  -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 
 .large-button:hover {
@@ -240,7 +227,14 @@ body {
 }
 
 .large-button__text {
-  margin: 0 auto; 
+  text-decoration: none;
+  color: black; 
+  display: flex;
+  justify-content: center;
+}
+
+.large-button__text:hover {
+  color: red; 
 }
 
 .item-tool-right {
@@ -303,8 +297,7 @@ body {
 }
 
 
-
-/*VIDEOS PAGE CSS*/
+/*INTERNAL PAGES STYLING*/
 .inner-pages-title-center {
   justify-content: center;
   margin: 0 auto;
@@ -336,10 +329,199 @@ body {
 
 .main-flexbox-inner-pages__specfic-item {
   padding: 20px;
-  border: 2px solid var(--trim-color);
+  border: 4px solid var(--trim-color);
   border-radius: 5px;
+}
+
+/*ABOUT PAGE STYLES*/
+.about-image {
+  min-width: 350px;
+  width: 350px;
+  height: 350px;
+  background-color: black;
+  border: 15px solid gold;
+  border-radius: 50%;
+  float: left;
+  margin: 40px;
+}
+
+.about-text {
+  padding: 90px 60px 20px 50px;
+  /*display: flex;
+  align-content: center;*/
+  color: gold;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1.25em;
+}
+
+.about-text--overall-height-container {
+ /* max-height: 320;
+  overflow: auto;*/
+}
+
+.about-page-flexbox {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/*RAP TOOL STYLING*/
+.rap-tool-main-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid gold;
+  border-radius: 50px;
+  /*background-color: red;*/
+  padding: 20px 50px 20px 50px;
+  width: 100%;
+  background: linear-gradient(black, white);
+}
+
+
+.rap-tool__title {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 3em;
+  color: gold;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 5px solid gold;
+}
+
+
+.rap-tool__word {
+  background-color: white;
+  box-shadow: 5px 10px 10px;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 2em;
+  color: black;
+  border: 5px solid gold;
+  border-radius: 15px;
+  width: 65%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin: 50px 0px 50px 0px;
+
 
 }
+
+.rap-tool__rhyme-helpers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: linear-gradient(black, white);
+  /*width: 60%;*/
+  padding: 15px;
+  margin: 20px;
+  justify-content: space-around;
+  border: 2px solid grey;
+  box-shadow: 5px 10px 10px;
+  border-radius: 20px;
+  min-width: 65%
+
+}
+
+.rap-tool__words__specific-word {
+  border: 5px solid var(--trim-color);
+  box-shadow: inset 5px 10px 10px;
+  border-radius: 20px;
+  padding: 20px 30px 20px 30px;
+  margin: 10px 15px 10px 15px;
+  background-color: white;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1.5em;
+  /*text-shadow: 1px 1px grey;*/
+  
+
+}
+
+/*OUTPUT RHYMED WORDS*/
+.rap-tool__words__specific-word > div {
+  font-style: italic;
+  background: -webkit-linear-gradient(brown, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rap-tool__control-buttons {
+  display: flex;
+  box-shadow: inset 5px 10px 10px;
+  flex-direction: row;
+  background-color: var(--trim-color);
+  padding: 30px;
+  margin: 20px;
+  justify-content: space-around;
+  border: 5px solid var(--trim-color);
+  border-radius: 20px;
+}
+
+.rap-tool__control-buttons__specific-button {
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 1.25em;
+  padding: 20px 30px 20px 30px;
+  margin: 10px 15px 10px 15px;
+  background-color: black; 
+  border: none;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  /*font-size: 16px;*/
+  border-radius: 10px;
+  box-shadow: 2px 4px 4px #53575A;
+}
+
+.rap-tool__control-buttons__specific-button:hover {
+  color: red;
+  box-shadow: 0px 0px;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+}
+
+.rap-tool__control-buttons__specific-button:active {
+  color: red;
+  background-color: white; 
+  box-shadow: inset 2px 4px 4px #53575A;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s; 
+}
+
+.rap-tool__music-video {
+  padding: 10px;
+  border: 2px solid var(--trim-color);
+  border-radius: 20px;
+  background: radial-gradient(ellipse, white, white, black);
+}
+
+/*COURSES STYLE*/
+.courses-flex {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  border-radius: 40px;
+}
+
+.courses-flex__item--text {
+  font-family: 'Allerta Stencil', sans-serif;
+  color: gold;
+  font-size: 3em;
+}
+
+.courses-image {
+  min-width: 350px;
+  width: 350px;
+  height: 350px;
+  background-color: black;
+  border: 15px solid gold;
+  border-radius: 50%;
+  margin: 40px;
+}
+
+
 
 
 

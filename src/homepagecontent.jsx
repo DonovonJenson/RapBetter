@@ -9,9 +9,9 @@ var Homepagecontent = () => {
       </div>
       <div className="homepage-grid-container__item item-tool item-tool--layout">
         <div className="grid-item--spacing">
-          <div className="large-button">
-            <div className="large-button__text">Rhyme</div>
-          </div>
+          <a className="large-button large-button__text" href="/raptool">
+            <div>Rhyme</div>
+          </a>
         </div>
       </div>
       <div className="homepage-grid-container__item item-tool--text item-tool-text">
@@ -28,18 +28,16 @@ var Homepagecontent = () => {
         </div>
       </div>
       <div className="homepage-grid-container__item item-videos">
-        {/*Video
-          background-image: url('./images/test2.jpg'); */}
         <div className="video__images">
           <div className="video__images--inner-boxed-div">
             <div>
-              <img className="home-page-box-image video__images--specific-photo" src="./images/dono3.jpg"/>
-              <img className="home-page-box-image video__images--specific-photo" src="./images/dono2.jpg"/>
-              <img className="home-page-box-image video__images--specific-photo" src="./images/dono2.jpg"/>
+              <a href="/videos"><img className="home-page-box-image video__images--specific-photo" src="./images/dono3.jpg"/></a>
+              <a href="/videos"><img className="home-page-box-image video__images--specific-photo" src="./images/dono2.jpg"/></a>
+              <a href="/videos"><img className="home-page-box-image video__images--specific-photo" src="./images/dono2.jpg"/></a>
             </div>
             <div>
-              <img className="home-page-box-image video__images--specific-photo" src="./images/dono1.jpg"/>
-              <img className="home-page-box-image video__images--specific-photo" src="./images/dono4.jpg"/>   
+              <a href="/videos"><img className="home-page-box-image video__images--specific-photo" src="./images/dono1.jpg"/></a>
+              <a href="/videos"><img className="home-page-box-image video__images--specific-photo" src="./images/dono4.jpg"/></a>   
             </div>  
           </div>
         </div>
@@ -50,7 +48,7 @@ var Homepagecontent = () => {
           <br/>
           &
           <br/>
-          <span className="item-videos-text--course-text">COURSES</span>
+          <a className="item-videos-text--course-text" href="/courses">COURSES</a>
           <br/>
         </p>
       </div>
