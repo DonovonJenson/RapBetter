@@ -431,7 +431,7 @@ body {
   box-shadow: inset 5px 10px 10px;
   border-radius: 20px;
   padding: 20px 30px 20px 30px;
-  margin: 10px 15px 10px 15px;
+  margin: 10px 10px 10px 10px;
   background-color: white;
   font-family: 'Allerta Stencil', sans-serif;
   font-size: 1.5em;
@@ -463,8 +463,8 @@ body {
 .rap-tool__control-buttons__specific-button {
   font-family: 'Allerta Stencil', sans-serif;
   font-size: 1.25em;
-  padding: 20px 30px 20px 30px;
-  margin: 10px 15px 10px 15px;
+  padding: 20px 20px 20px 20px;
+  margin: 10px 10px 10px 10px;
   background-color: black; 
   border: none;
   color: white;
