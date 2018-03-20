@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/rapbetter');
+var mongooseURI = 'mongodb://' + (process.env.MONGODB_URI || 'localhost/rapbetter' )
+mongoose.connect(mongooseURI);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('mongo connected!')
@@ -26,8 +27,10 @@ function mapWordToRhyme (){
   			console.log(succ);
 				Word.count(function (err, count) {
 			    if (!err && count > 0) {
-			        setTimeout(mapWordToRhyme, 500);
-			    } 
+			        setTimeout(mapWordToRhyme, 100);
+			    } else /{
+            mongoose.connection.close()
+          }
 			  })
   		}
   	});
