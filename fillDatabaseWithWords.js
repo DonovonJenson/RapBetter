@@ -3,7 +3,8 @@ var fs = require('fs'),
     os = require('os');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/rapbetter');
+var mongooseURI = 'mongodb://' + (process.env.MONGODB_URI || 'localhost/rapbetter' )
+mongoose.connect(mongooseURI);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('mongo connected!')
@@ -35,6 +36,7 @@ var s = fs.createReadStream('./words.txt')
     })
     .on('end', function() {
         console.log('Finish reading.');
+        mongoose.connection.close()
     })
 );
 
