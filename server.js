@@ -10,24 +10,9 @@ const path = require('path');
 
 //This line will need to be updated at deployment
 //mongoose.connect('mongodb://localhost/rapbetter');
-var mongooseURI = process.env.MONGODB_URI || 'mongodb://localhost/rapbetter'
+var mongooseURI = 'mongodb://' + (process.env.MONGODB_URI || 'localhost/rapbetter' )
 
-var options = {
-  "server" : {
-    "socketOptions" : {
-      "keepAlive" : 300000,
-      "connectTimeoutMS" : 30000
-    }
-  },
-  "replset" : {
-    "socketOptions" : {
-      "keepAlive" : 300000,
-      "connectTimeoutMS" : 30000
-    }
-  }
-}
-
-mongoose.connect(mongooseURI, options);
+mongoose.connect(mongooseURI);
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
