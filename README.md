@@ -1,7 +1,5 @@
-![Screenshot](www/images/Screen Shot 2018-03-22 at 10.27.05 AM.png)
+Rap Better Website && Freestyle Tool
 
- 
- 
 Setup
 ---
  
