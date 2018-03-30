@@ -500,25 +500,47 @@ body {
 /*COURSES STYLE*/
 .courses-flex {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: red;
   border-radius: 40px;
+}
+
+.courses-flex-title{
+  font-family: 'Allerta Stencil', sans-serif;
+  color: gold;
+  font-size: 20px;
+}
+
+.single-course{
+    display: flex;
+    justify-content: center;
+}
+
+.courses-explanation{
+  font-family: 'Allerta Stencil', sans-serif;
+  color: gold;
+  font-size: 20px;
+  align-self: center;
 }
 
 .courses-flex__item--text {
   font-family: 'Allerta Stencil', sans-serif;
   color: gold;
   font-size: 3em;
+  text-align:center;
 }
 
 .courses-image {
-  min-width: 350px;
-  width: 350px;
-  height: 350px;
+  width: 50%;
+  height: auto;
   background-color: black;
-  border: 15px solid gold;
+  border: 5px solid gold;
   border-radius: 50%;
-  margin: 40px;
+  margin: 6px;
+}
+
+.half {
+  width: 50%;
 }
 
 
