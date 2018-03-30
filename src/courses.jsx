@@ -25,9 +25,16 @@ var Courses = () => (
     </div>
     <div className="main-flexbox-inner-pages">
       <div className="courses-flex">
-        <img className="courses-image" src="./images/writeYourFirstVerseCourseImage.jpg"/>
-        <img className="courses-image" src="./images/writeRecordFirstSongCourseImage.jpg"/>
-        <img className="courses-image" src="./images/rapmic.jpg"/>
+
+        <a href="https://www.udemy.com/write-your-first-rap-verse">
+          <img className="courses-image" src="./images/writeYourFirstVerseCourseImage.jpg"/>
+        </a>
+        <a href="https://www.udemy.com/writing-your-first-rap-song">
+          <img className="courses-image" src="./images/writeRecordFirstSongCourseImage.jpg"/>
+        </a>
+        <a href="https://www.udemy.com/rap-fundamentals">
+          <img className="courses-image" src="./images/rapmic.jpg"/>
+        </a>
       </div>
     </div>
     <div className="main-flexbox-inner-pages">
