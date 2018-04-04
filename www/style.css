@@ -506,6 +506,8 @@ body {
 }
 
 .courses-flex-title{
+  text-align: center;
+  width: 100%;
   font-family: 'Allerta Stencil', sans-serif;
   color: gold;
   font-size: 20px;
@@ -513,7 +515,12 @@ body {
 
 .single-course{
     display: flex;
+    flex-wrap: wrap;
+    border-radius: 40px;
+    border: 1px solid gold;
+    margin: 3px;
     justify-content: center;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .courses-explanation{
@@ -531,7 +538,7 @@ body {
 }
 
 .courses-image {
-  width: 50%;
+  width: 60%;
   height: auto;
   background-color: black;
   border: 5px solid gold;
