@@ -26,33 +26,36 @@ var Courses = () => (
     <div className="main-flexbox-inner-pages">
       <div className="courses-flex">
         <div className="single-course">
-          <a href="https://www.udemy.com/write-your-first-rap-verse" className='half'>
-            <img className="courses-image" src="./images/writeYourFirstVerseCourseImage.jpg"/>
             <div className ="courses-flex-title"> 
               Write Your First Verse - FREE
             </div>
+          <a href="https://www.udemy.com/write-your-first-rap-verse" className='half'>
+            <img className="courses-image" src="./images/writeYourFirstVerseCourseImage.jpg"/>
           </a>
           <div className="courses-explanation">
             Eventually, stuff!
           </div>
         </div>
         <div className="single-course">
-          <a href="https://www.udemy.com/writing-your-first-rap-song/?couponCode=STUDENTDISCOUNT" className='half'>
-            <img className="courses-image" src="./images/writeRecordFirstSongCourseImage.jpg"/>
             <div className ="courses-flex-title"> 
               Write & Record Your First Song - $10
             </div>
+          <a href="https://www.udemy.com/writing-your-first-rap-song/?couponCode=STUDENTDISCOUNT" className='half'>
+            <img className="courses-image" src="./images/writeRecordFirstSongCourseImage.jpg"/>
           </a>
           <div className="courses-explanation">
             Eventually, stuff!
           </div>
+          <div className="courses-pricing">
+            Hunnerd
+          </div>
         </div>
         <div className='single-course'>
-          <a href="https://www.udemy.com/rap-fundamentals/?couponCode=Youtubers" className='half'>
-            <img className="courses-image" src="./images/rapmic.jpg"/>
             <div className ="courses-flex-title"> 
               Rap Fundamentals - $15
             </div>
+          <a href="https://www.udemy.com/rap-fundamentals/?couponCode=Youtubers" className='half'>
+            <img className="courses-image" src="./images/rapmic.jpg"/>
           </a>
           <div className="courses-explanation">
             Eventually, stuff!
