@@ -528,6 +528,7 @@ body {
   color: gold;
   font-size: 20px;
   align-self: center;
+  width: 30%;
 }
 
 .courses-flex__item--text {
@@ -538,7 +539,7 @@ body {
 }
 
 .courses-image {
-  width: 60%;
+  width: 90%;
   height: auto;
   background-color: black;
   border: 5px solid gold;
@@ -547,7 +548,24 @@ body {
 }
 
 .half {
-  width: 50%;
+  width: 40%;
+}
+
+.courses-pricing {
+  width: 15%;
+  font-family: 'Allerta Stencil', sans-serif;
+  color: gold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.courses-pricing-title {
+  width: 100%;
+  border: 1px solid gold;
+}
+
+.courses-pricing-dollars {
+
 }
 
 
