@@ -22,17 +22,9 @@ class Videos extends React.Component {
  
   render() {
     return (
-      <div className="inner-pages-title-center">
-      <div className="main-title-inner-pages">
-        <div className="main-title-inner-pages--content">
-          <div className="header-titles-container__title">Rap Better</div>
-          <div className="header-titles-container__subheader-title">Here is risen the lyricism</div>
-        </div>
-      </div>
         <div className="main-flexbox-inner-pages">
           {this.state.videosOnVidsPage.map((item, i) => <VideoItem options={this.state.opts} video={item} key={i}/>)}
         </div>
-      </div>
     )
   }
 }

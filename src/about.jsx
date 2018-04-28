@@ -8,13 +8,6 @@ var testSprite  = {
 
 var About = () => {
   return (
-  <div className="inner-pages-title-center">
-    <div className="main-title-inner-pages">
-      <div className="main-title-inner-pages--content">
-        <div className="header-titles-container__title">Rap Better</div>
-        <div className="header-titles-container__subheader-title">Here is risen the lyricism</div>
-      </div>
-    </div>
       <div className="main-flexbox-inner-pages">
         <div className="about-page-flexbox">     
           <img className="about-image" src="./images/donovonjenson.jpg"/>
@@ -36,7 +29,6 @@ var About = () => {
             </div>
           </div>
         </div>
-      </div>
   </div>
 )}
 
