@@ -3,10 +3,6 @@ import React from 'react';
 var Homepagecontent = () => {
   return (
     <div className="homepage-grid-container"> 
-      <div className="homepage-grid-container__item item-header header-titles-container">
-        <div className="header-titles-container__title">Rap Better</div>
-        <div className="header-titles-container__subheader-title">Here is risen the lyricism</div>
-      </div>
       <div className="homepage-grid-container__item item-tool item-tool--layout">
         <div className="grid-item--spacing">
           <a className="large-button large-button__text" href="/raptool">
@@ -18,7 +14,7 @@ var Homepagecontent = () => {
         Use this tool to fuel <br/>
          your rhymes <br/>
         & <br/>
-        to work your rythm 
+        to work your rhythm 
       </div>
       <div className="homepage-grid-container__item item-tool-right item-tool--layout">
         <div className="grid-item--spacing">
