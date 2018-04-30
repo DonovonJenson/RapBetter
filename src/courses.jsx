@@ -36,6 +36,14 @@ var Courses = () => (
             <div className="courses-pricing-dollars">
               <p>FREE</p>
             </div>
+                <div class="svg-wrapper">
+      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+        <rect id="shape" height="40" width="150" />
+        <div id="text"> Buy Now!
+          <a href=""><span class="spot"></span>Button 1</a>
+        </div>
+      </svg>
+    </div>
           </div>
         </div>
         <div className="single-course">
