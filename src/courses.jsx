@@ -36,14 +36,7 @@ var Courses = () => (
             <div className="courses-pricing-dollars">
               <p>FREE</p>
             </div>
-                <div class="svg-wrapper">
-      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-        <rect id="shape" height="40" width="150" />
-        <div id="text"> Buy Now!
-          <a href=""><span class="spot"></span>Button 1</a>
-        </div>
-      </svg>
-    </div>
+            <a href="https://www.udemy.com/write-your-first-rap-verse" class="glass">Buy Now!</a>
           </div>
         </div>
         <div className="single-course">
@@ -63,6 +56,7 @@ var Courses = () => (
             <div className="courses-pricing-dollars">
               <p>$10</p>
             </div>
+            <a href="https://www.udemy.com/writing-your-first-rap-song/?couponCode=STUDENTDISCOUNT" class="glass">Buy Now!</a>
           </div>
         </div>
         <div className='single-course'>
@@ -82,6 +76,7 @@ var Courses = () => (
             <div className="courses-pricing-dollars">
               <p>$15</p>
             </div>
+            <a href="https://www.udemy.com/rap-fundamentals/?couponCode=Youtubers" class="glass">Buy Now!</a>
           </div>
         </div>
       </div>
