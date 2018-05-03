@@ -344,6 +344,7 @@ body {
 
 .about-text {
   padding: 90px 60px 20px 50px;
+  background-color: rgba(0,0,0,0.5);
   /*display: flex;
   align-content: center;*/
   color: gold;

@@ -14,17 +14,14 @@ var About = () => {
           <div className="about-text">
             <div className="about-text--overall-height-container">
               <p>
-                Lorem ipsum dolor sit amet, autem velit usu ut. Quo no aeque altera atomorum. 
-                Pro no nisl eligendi electram, cu suas consetetur delicatissimi duo, officiis 
-                efficiendi usu te. Quo ea amet primis, mel corrumpit signiferumque te. Mandamus 
-                definitionem eu his, has eruditi maiorum albucius ne, id utinam regione meliore 
-                pro.
+                Hey, thanks for taking the time to check out the site! Rap Better is a project dedicated to refining the technical aspects of rapping. 
+                My goal is to create content that makes it extremely simple to divide rap into individual skills.
+                Once these skills are extracted, the next step is creating tools to practice and improve, that's the goal of this site.
               </p>
-
-               <p>
-                Vel ne viderer facilis eleifend, qui ei laudem aliquam dolores, mei ea nonumy 
-                aliquando repudiandae. Ad mea dico suavitate sadipscing. Pertinacia democritum 
-                his ad. Pri scripta nonumes fabellas ex. 
+              <p>
+                I go by Dono and I've been rapping for over ten years and teaching for more than five. 
+                I've been making Youtube videos for much of that time and the regular practice allows me to simplify context as well as I can.
+                I don't want to rant forever, so if you need anything just reach out and let me know! 
               </p>
             </div>
           </div>
