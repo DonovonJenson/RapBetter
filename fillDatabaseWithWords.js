@@ -1,6 +1,8 @@
 var fs = require('fs'),
     es = require('event-stream'),
     os = require('os');
+
+
 const mongoose = require('mongoose');
 var db = mongoose.connection;
 var mongooseURI = 'mongodb://' + (process.env.MONGODB_URI || 'localhost/rapbetter' )
@@ -9,6 +11,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('mongo connected!')
 });
+
 
 var wordSchema = mongoose.Schema({
   word: { type: 'string', unique: true }
