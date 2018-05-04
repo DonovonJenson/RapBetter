@@ -16,7 +16,7 @@ npm install
 Usage
 ---
  
-###Start the development environment:
+### Start the development environment:
  
 ```
 npm run start-dev
@@ -24,7 +24,7 @@ npm run start-dev
 The development server will run the "build-dev" command, configuring the webpack to output the development settings and the development build of React.
 
 
-###Start the production enviroment:
+### Start the production enviroment:
  
 ```
 npm start
