@@ -1,7 +1,16 @@
-const axios = require('axios')
+const axios = require('axios');
+
+// requires mongoose
 const mongoose = require('mongoose');
+// imports the schema
 const {rhymeSchema} = require('./server.js');
+// creates a model with the schema
 var Rhymeset = mongoose.model('Rhymeset',rhymeSchema);
+
+// creates a funciton that uses model
+
+
+// VVVV controller function
 
 module.exports.getRhymes = (rhymeWord) => {
 	//Rhymebrain results 

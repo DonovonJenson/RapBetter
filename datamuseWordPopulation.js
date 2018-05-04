@@ -1,6 +1,8 @@
 const axios = require('axios')
 const mongoose = require('mongoose');
 
+// declare the rhymeSchema
+
 var rhymeSchema = mongoose.Schema ({
   coreWord: {type: String, unique: true}, 
   rhymeSet: Array
