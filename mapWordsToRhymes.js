@@ -1,11 +1,22 @@
+// import mongoose
 const mongoose = require('mongoose');
+
+// create our connection
 var db = mongoose.connection;
+
+// create the URI string
 var mongooseURI = 'mongodb://' + (process.env.MONGODB_URI || 'localhost/rapbetter' )
+
+// connect to the database using the string
 mongoose.connect(mongooseURI);
+
+// run some database stuffs
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('mongo connected!')
 });
+
+// import the controller function from the file
 const {getDatamuseRhymes} = require('./dataMuseWordPopulation.js')
 
 
