@@ -30,7 +30,7 @@ var Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
  
 
  
-app.use(express.static(__dirname + '/www'));
+app.use(express.static(path.join(__dirname, '../www')));
 
 app.get('/getRhyme', (req, res) =>{
   Rhymeset.aggregate(
