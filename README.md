@@ -16,18 +16,23 @@ npm install
 Usage
 ---
  
-Start the development server with this command:
+###Start the development server with this command:
+ 
+```
+npm run start-dev
+``
+
+The development server will run the "build-dev" command, configuring the webpack to output the development settings and the development build of React.
+
+
+###Start the production server with this command:
  
 ```
 npm start
 ```
 
-Compile
----
- 
-```
-npm run compile
-```
+The production server will run the "build-prod" command, configuring the webpack to output the production settings and production build of React.
+
 
 Fill database with words 
 ---

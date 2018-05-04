@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "webpack",
-    "start": "node server.js",
+    "build-dev": "webpack --config webpack.dev.js --mode development",
+    "build-prod": "webpack --config webpack.prod.js --mode production",
+    "start": "npm run build-prod & node server.js",
+    "start-dev": "npm run build-dev & nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,21 +15,25 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "express": "^4.16.2",
     "mongoose": "^5.0.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-youtube": "^7.5.0",
-    "webpack": "^3.11.0",
-    "webpack-dev-middleware": "^2.0.5"
+    "react-youtube": "^7.5.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "file-loader": "^1.1.11",
-    "url-loader": "^1.0.1"
+    "nodemon": "^1.17.3",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
+    "webpack-dev-middleware": "^2.0.6",
+    "webpack-merge": "^4.1.2"
   }
 }
