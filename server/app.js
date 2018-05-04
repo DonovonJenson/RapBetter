@@ -1,10 +1,12 @@
 const express = require('express');
+const path = require('path');
+const app = express();
+
+
+// ---------- MOVE TO DB DIRECTORY --------------------
+
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-const webpack = require('webpack');
-const app = express();
-const path = require('path');
-
 
 //This line will need to be updated at deployment
 //mongoose.connect('mongodb://localhost/rapbetter');
@@ -24,7 +26,9 @@ var rhymeSchema = mongoose.Schema ({
 
 var Rhymeset = mongoose.model('Rhymeset',rhymeSchema)
 
+// ----------------------------------------------------
  
+
  
 app.use(express.static(__dirname + '/www'));
 
@@ -45,9 +49,4 @@ app.get('/*', function(req, res) {
   })
 })
 
-var portNumber = process.env.PORT || 3000;
-const server = app.listen(portNumber, function() {
-  const host = server.address().address;
-  const port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+module.exports = app;
