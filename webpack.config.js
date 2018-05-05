@@ -5,7 +5,7 @@ const _modules = path.join(__dirname, 'node_modules');
 
  
 module.exports = {
-  entry: `${_src}/main.js`,
+  entry: `${_src}/index.js`,
   output: {
     path: _public,
     filename: 'bundle.js',
