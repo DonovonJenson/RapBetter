@@ -9,11 +9,21 @@
   left: 0;
   height: $navigation-height;
   width: 100vw;
-  background-color: $bg-secondary-color;
+  background-color: $bg-primary-color;
+}
+
+.navigation a {
+  color: $text-secondary-color;
+  text-decoration: none;
+  transition: $standard-transition;
+}
+
+.navigation a:hover {
+  color: $text-primary-color;
 }
 
 .navigation-gutter {
-  height: $navigation-height * 1.2;
+  height: $navigation-height;
   width: 100vw;
 }
 
@@ -27,15 +37,17 @@
 .navigation-logo {
   background: url(./../../public/rap-better-logo.png) no-repeat left center; // your logo asset goes here
   background-size: contain;
+  filter: invert(100%);
   margin-left: 4vw;
   min-height: 4vh;
   width: 100%;
-  opacity: 1.0;
+  opacity: 0.5;
   transition: $standard-transition;
 }
 
 .navigation-logo:hover {
-  opacity: 0.7;
+  opacity: 1.0;
+  filter: invert(80%);
 }
 
 .navigation-nav-wrapper {
@@ -59,7 +71,7 @@
   }
 
   .navigation-gutter {
-    height: $navigation-height-mobile-landscape * 1.2;
+    height: $navigation-height-mobile-landscape;
   }
 
   .navigation-logo-wrapper {
@@ -83,7 +95,7 @@
   }
 
   .navigation-gutter {
-    height: $navigation-height-mobile-portrait * 1.2;
+    height: $navigation-height-mobile-portrait;
   }
 
   .navigation-logo-wrapper {

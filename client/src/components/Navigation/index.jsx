@@ -32,10 +32,10 @@ export default class Navigation extends React.Component {
 
         <div className="navigation-nav-wrapper">
           <nav>
-            <a className="navigation-nav-link" href="">Link 1</a>
-            <a className="navigation-nav-link" href="">Link 2</a>
-            <a className="navigation-nav-link" href="">Link 3</a>
-            <a className="navigation-nav-link" href="">Link 4</a>
+            <a className="navigation-nav-link" href="/tool">Rap Tool</a>
+            <a className="navigation-nav-link" href="/videos">Videos</a>
+            <a className="navigation-nav-link" href="/about">About</a>
+            <a className="navigation-nav-link" href="/courses">Courses</a>
           </nav>
         </div>
 
@@ -52,13 +52,32 @@ export default class Navigation extends React.Component {
           <div className="mobile-nav-content">
             <ul>
               <li>
-                <a href="/">Link 1</a>
+                <a 
+                  href="/about"
+                >
+                  About
+                </a>
               </li>
               <li>
-                <a href="/">Link 2</a>
+                <a 
+                  href="/tool"
+                >
+                  Rap Tool
+                </a>
               </li>
               <li>
-                <a href="/">Link 3</a>
+                <a 
+                  href="/videos"
+                >
+                  Videos
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/courses"
+                >
+                  Courses
+                </a>
               </li>
             </ul>
           </div>

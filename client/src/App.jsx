@@ -23,10 +23,15 @@ export default class App extends React.Component {
           isMobile={isMobile}
         />
 
+        <div className="navigation-gutter"/>
+
         <Router history={hashHistory}> 
           <Switch>
-            <Route exact path="/" render={() => <div>Hi</div>} />
-            {/* For each new page that we add, add a Route to that page */}
+            <Route exact path="/" render={() => <div className="jumbotron">Home</div>} />
+            <Route path="/tool" render={() => <div className="jumbotron">Rap Tool</div>} />
+            <Route path="/videos" render={() => <div className="jumbotron">Videos</div>} />
+            <Route path="/about" render={() => <div className="jumbotron">About</div>} />
+            <Route path="/courses" render={() => <div className="jumbotron">Courses</div>} />
           </Switch>
         </Router> 
 
