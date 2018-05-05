@@ -1,11 +1,13 @@
 const path = require('path');
-const _src = path.join(__dirname, 'src');
-const _public = path.join(__dirname, 'www');
 const _modules = path.join(__dirname, 'node_modules');
+const _public = path.join(__dirname, 'client/public');
+const _src = path.join(__dirname, 'client/src');
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
  
 module.exports = {
-  entry: `${_src}/main.js`,
+  entry: `${_src}/index.js`,
   output: {
     path: _public,
     filename: 'bundle.js',
@@ -21,9 +23,12 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ['css-loader', 'style-loader']
+        test: /\.(s*)css$/,
+        exclude: '/node_modules/',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -32,8 +37,11 @@ module.exports = {
           limit: '25000'
        }
       }
-    ],
+    ]
   },
+  plugins: [
+    new ExtractTextPlugin({filename: 'style.css'})
+  ],
   resolve: {
     modules: [_modules]
   }

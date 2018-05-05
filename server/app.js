@@ -4,7 +4,7 @@ const app = express();
 
 const models = require('../db/models');
 
-const _public = path.join(__dirname, '../www');
+const _public = path.join(__dirname, '../client/public');
 
  
 app.use(express.static(_public));

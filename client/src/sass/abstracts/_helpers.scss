@@ -1,0 +1,11 @@
+.no-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.no-scroll {
+  position: fixed;
+  overflow: hidden;
+}

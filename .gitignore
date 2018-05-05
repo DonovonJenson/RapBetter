@@ -1,5 +1,7 @@
+client/public/style.css
+client/public/old-style.css
 node_modules/
-www/bundle.js
-www/bundle.js.map
+client/public/bundle.js
+client/public/bundle.js.map
 .DS_Store
 src/.DS_Store

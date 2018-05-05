@@ -1,0 +1,113 @@
+// NAVIGATION LAYOUT
+
+.navigation {
+  @include flex;
+  @include align-center;
+  @include std-box-shadow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $navigation-height;
+  width: 100vw;
+  background-color: $bg-primary-color;
+}
+
+.navigation a {
+  color: $text-secondary-color;
+  text-decoration: none;
+  transition: $standard-transition;
+}
+
+.navigation a:hover {
+  color: $text-primary-color;
+}
+
+.navigation-gutter {
+  height: $navigation-height;
+  width: 100vw;
+}
+
+.navigation-logo-wrapper {
+  @include flex;
+  @include align-center;
+  @include justify-start;
+  width: 20%;
+}
+
+.navigation-logo {
+  background: url(./../../public/rap-better-logo.png) no-repeat left center; // your logo asset goes here
+  background-size: contain;
+  filter: invert(100%);
+  margin-left: 4vw;
+  min-height: 4vh;
+  width: 100%;
+  opacity: 0.5;
+  transition: $standard-transition;
+}
+
+.navigation-logo:hover {
+  opacity: 1.0;
+  filter: invert(80%);
+}
+
+.navigation-nav-wrapper {
+  @include flex;
+  @include align-center;
+  @include justify-end;
+  color: $text-secondary-color;
+  width: 80%;
+}
+
+.navigation-nav-link {
+  margin-right: 4vw;
+}
+
+
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+
+  .navigation {
+    height: $navigation-height-mobile-landscape;
+  }
+
+  .navigation-gutter {
+    height: $navigation-height-mobile-landscape;
+  }
+
+  .navigation-logo-wrapper {
+    width: 40%;
+  }
+
+  .navigation-logo {
+    min-height: $navigation-height-mobile-landscape / 2;
+  }
+
+  .navigation-nav-wrapper {
+    display: none;
+  }
+
+}
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+
+  .navigation {
+    height: $navigation-height-mobile-portrait;
+  }
+
+  .navigation-gutter {
+    height: $navigation-height-mobile-portrait;
+  }
+
+  .navigation-logo-wrapper {
+    width: 40%;
+  }
+
+  .navigation-logo {
+    min-height: $navigation-height-mobile-portrait / 2;
+  }
+
+  .navigation-nav-wrapper {
+    display: none;
+  }
+
+}
