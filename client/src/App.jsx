@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, hashHistory } from 'react-router-dom';
 
+import Navigation from './components/Navigation/index.jsx';
+
 import './sass/main.scss';
 
 export default class App extends React.Component {
@@ -11,11 +13,15 @@ export default class App extends React.Component {
 
   render() {
 
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     return (
 
-      <div>
+      <div className="content-body">
 
-        {/* Navigation Component Here */}
+        <Navigation
+          isMobile={isMobile}
+        />
 
         <Router history={hashHistory}> 
           <Switch>
