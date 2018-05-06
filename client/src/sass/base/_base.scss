@@ -3,16 +3,12 @@ html {
   -webkit-font-smoothing: antialiased;
   font-family: gordita,Helvetica Neue,Helvetica,sans-serif;
   font-size: 1.5vh;
+  background-color: $bg-primary-color;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
 }
-
-*::after {
-  background-color: $bg-primary-color;
-}
-
 
 @media screen and (orientation: landscape) and (max-width: 1200px) {
   html {

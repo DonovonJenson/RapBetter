@@ -43,6 +43,7 @@ module.exports = {
     new ExtractTextPlugin({filename: 'style.css'})
   ],
   resolve: {
+    extensions: [".webpack.js", ".web.js", ".js", ".json", ".jsx"],
     modules: [_modules]
   }
 };
