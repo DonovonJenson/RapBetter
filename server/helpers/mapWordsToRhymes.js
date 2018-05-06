@@ -1,6 +1,6 @@
 const models = require('../../db/models');
 
-const getDatamuseRhymes = require('./datamuseWordsPopulation');
+const getDatamuseRhymes = require('./datamuseWordPopulation');
 
 module.exports.mapWordToRhyme = () => {
 

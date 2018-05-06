@@ -2,13 +2,14 @@ const axios = require('axios')
 const models = require('../../db/models');
 
 module.exports.getDatamuseRhymes = (rhymeWord) => {
-	//Refactor to use Given word
-	//Rhymebrain results 
 	var datamuseURL = 'http://api.datamuse.com/words?rel_rhy=' + rhymeWord + '&md=f';
 
 	axios.get(datamuseURL)
 		.then(response => {
 			var body = response.data;
+
+			body = body.filter(word => !word.includes(' '))
+			console.log(body)
 
 			body.sort((a,b) => {
 				var value1 = (a.score * .9) + (a.tags[0].split(':')[1] * .1);
