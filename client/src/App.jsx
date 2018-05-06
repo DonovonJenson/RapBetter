@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, hashHistory } from 'react-router-dom';
 
-import Navigation from './components/Navigation/index.jsx';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 import './sass/main.scss';
 
@@ -34,6 +35,8 @@ export default class App extends React.Component {
             <Route path="/courses" render={() => <div className="jumbotron">Courses</div>} />
           </Switch>
         </Router> 
+
+        <Footer />
 
       </div>
 
