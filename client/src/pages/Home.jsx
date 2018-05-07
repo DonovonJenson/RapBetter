@@ -8,7 +8,7 @@ export default class Home extends React.Component {
   }
 
   testWordFetch() {
-    axios.post('/fetchRhymes', {word: 'hello'})
+    axios.post('/fetch-quick-rhymes', {word: 'hello'})
       .then(results => {
         console.log(results);
       });
