@@ -1,6 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, hashHistory } from 'react-router-dom';
 
+import Home from './pages/Home';
+import Tool from './pages/Tool';
+import Videos from './pages/Videos';
+import About from './pages/About';
+import Courses from './pages/Courses';
+
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
@@ -25,14 +31,14 @@ export default class App extends React.Component {
         />
 
         <div className="navigation-gutter"/>
-
+        
         <Router history={hashHistory}> 
           <Switch>
-            <Route exact path="/" render={() => <div className="jumbotron">Home</div>} />
-            <Route path="/tool" render={() => <div className="jumbotron">Rap Tool</div>} />
-            <Route path="/videos" render={() => <div className="jumbotron">Videos</div>} />
-            <Route path="/about" render={() => <div className="jumbotron">About</div>} />
-            <Route path="/courses" render={() => <div className="jumbotron">Courses</div>} />
+            <Route exact path="/" component={Home} />
+            <Route path="/tool" component={Tool} />
+            <Route path="/videos" component={Videos} />
+            <Route path="/about" component={About} />
+            <Route path="/courses" component={Courses} />
           </Switch>
         </Router> 
 

@@ -44,7 +44,7 @@
 
 @mixin std-box-shadow {
   -webkit-box-shadow: 0 0.5vh 0.5vh $standard-shadow;
-  box-shadow: 0 0.2vh 0.5vh $standard-shadow;
+  box-shadow: 0 0.5vh 0.5vh $standard-shadow;
 }
 
 // Menu Bar

@@ -35,6 +35,7 @@
 @import 'layout/footer';
 @import 'layout/jumbotron';
 @import 'layout/navigation';
+@import 'layout/page';
 
 
 /** 
@@ -44,7 +45,7 @@
 
   Note — Depending on your deployment process, these files could be called on their own to avoid merging them with the others in the resulting stylesheet. It is really up to you.
 */
-// @import 'pages/'
+@import 'pages/home';
 
 
 /**

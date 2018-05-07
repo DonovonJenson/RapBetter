@@ -1,13 +1,22 @@
 .jumbotron {
   @include flex;
-  @include align-center;
-  @include justify-center;
+  @include align-center;  // temporary
+  @include justify-center; // temporary
   height: 100vh - $navigation-height;
   width: 100%;
   background: radial-gradient(rgba(142, 121, 62, 0.2) 0%, rgba(3, 3, 3, 0.8)100%, transparent), url(./../../public/images/test2.jpg) no-repeat center, rgb(3, 3, 3);
   background-size: 100% auto;
   background-attachment: fixed;
   color: $text-primary-color;
+}
+
+.form-wrapper {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 25vh;
+  width: 25vh;
+  background-color: rgba(142, 121, 62, 0.4);
 }
 
 @media screen and (orientation: landscape) and (max-width: 1200px) {
