@@ -1,21 +1,38 @@
 import React from 'react';
+import axios from 'axios';
 
-const Home = (props) => {
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.testWordFetch = this.testWordFetch.bind(this);
+  }
 
-  return (
+  testWordFetch() {
+    axios.post('/fetchRhymes', {word: 'hello'})
+      .then(results => {
+        console.log(results);
+      });
+  }
 
-    <div id="home-page">
 
-      <div className="jumbotron"/>
+  render() {
 
-      <div className="page">
-        HOME PAGE
+    return (
+
+      <div id="home-page">
+
+        <div className="jumbotron"/>
+
+        <div className="page">
+
+          <button onClick={this.testWordFetch}>TEST RHYMES</button>
+
+        </div>
+
       </div>
 
-    </div>
+    );
 
-  );
+  }
 
 }
-
-export default Home;
