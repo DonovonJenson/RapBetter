@@ -22,10 +22,13 @@ app.use(express.static(_public));
 //   })
 // })
 
-app.post('/fetchRhymes', (req, res) => {
+app.post('/fetch-quick-rhymes', (req, res) => {
 
-  // grab the number of syllables for the input word, 
-    // then grab the results of that word and the syllables generated
+  // grab the information about the word from the rhymebrain API
+  // extract the syllables out of the word information
+  // use the number of syllables for the input word to filter out all matching results from the input word
+  // bubble sort the results by frequency (indicating more likelihood in the result)
+  // send the results back to the client
 
   controllers.wordInfo.fetchWordInfo(req.body.word)
     .then(result => {
@@ -38,7 +41,10 @@ app.post('/fetchRhymes', (req, res) => {
       return controllers.rhymes.filterRhymesByScore(syllableResults, 300);
     })
     .then(scoreResults => {
-      res.status(201).send(scoreResults);
+      return controllers.rhymes.bubbleSortRhymes(scoreResults, 'freq');
+    })
+    .then(sortedResults => {
+      res.status(201).send(sortedResults);
     });
 
 
