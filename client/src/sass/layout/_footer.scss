@@ -1,0 +1,24 @@
+.footer {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  height: $navigation-height;
+  width: 100vw;
+  color: $bg-tertiary-color;
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+
+  .footer {
+    height: $navigation-height-mobile-landscape;
+  }
+
+}
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+
+  .footer {
+    height: $navigation-height-mobile-portrait;
+  }
+
+}

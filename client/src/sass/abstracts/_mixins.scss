@@ -1,0 +1,68 @@
+@mixin flex {
+  display: -webkit-box;  // for Safari
+  display: -ms-flexbox;  // for IE
+  display: flex;  // for Everything else
+}
+
+@mixin flex-column {
+  -webkit-box-orient: vertical;  // for Safari
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;  // for IE
+  flex-direction: column;  // for everything else
+}
+
+// Flex Align Mixins
+
+@mixin align-center {
+  -webkit-box-align: center;  // for Safari
+  -ms-flex-align: center;  // for IE
+  align-items: center;  // for everything else
+}
+
+// Flex Justify Mixins
+
+@mixin justify-center {
+  -webkit-box-pack: center;  // for Safari
+  -ms-flex-pack: center;  // for IE
+  justify-content: center;  // for everything else
+}
+
+@mixin justify-start {
+  -webkit-box-pack: start;  // for Safari
+  -ms-flex-pack: start;  // for IE
+  justify-content: flex-start;  // for everything else
+}
+
+@mixin justify-end {
+  -webkit-box-pack: end;  // for Safari
+  -ms-flex-pack: end;  // for IE
+  justify-content: flex-end;  // for everything else
+}
+
+
+// Box-Shadow Mixins
+
+@mixin std-box-shadow {
+  -webkit-box-shadow: 0 0.5vh 0.5vh $standard-shadow;
+  box-shadow: 0 0.5vh 0.5vh $standard-shadow;
+}
+
+// Menu Bar
+
+@mixin mobile-nav-toggle-active($rotate) {
+  background-color: $bg-mobile-nav-active;
+  -webkit-transform: rotate($rotate);
+  transform: rotate($rotate);
+}
+
+@mixin menu-bar($height, $top-spacing) {
+  background-color: $bg-mobile-nav-inactive;
+  content: "";
+  cursor: pointer;
+  display: block;
+  height: $height;
+  position: absolute;
+  top: $top-spacing;
+  width: 100%;
+  transition: $standard-transition;
+}

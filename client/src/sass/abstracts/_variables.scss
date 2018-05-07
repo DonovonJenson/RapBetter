@@ -1,0 +1,31 @@
+// Background Colors
+$bg-primary-color: rgba(35, 35, 35, 1.0);
+$bg-secondary-color: rgba(235, 235, 235, 1.0);
+$bg-tertiary-color: rgba(142, 121, 62, 1.0);
+$bg-page-primary: rgba(50, 50, 50, 1.0);
+
+// Text Colors
+$text-primary-color: rgba(235, 235, 235, 0.8);
+$text-secondary-color: rgba(142, 121, 62, 1.0);
+$text-tertiary-color: rgba(35, 35, 35, 0.5);
+
+
+// Component Heights
+$navigation-height: 5.5vh;
+$navigation-height-mobile-portrait: 7.5vh;
+$navigation-height-mobile-landscape: 12vh;
+
+// Transitions
+$standard-time: 0.4s;
+
+$standard-transition: $standard-time;
+$linear-transition: $standard-time linear;
+$ease-in-transition: $standard-time ease-in;
+$ease-out-transition: $standard-time ease-out;
+
+// Box Shadows
+$standard-shadow: rgba(35, 35, 35, 0.2);
+
+// Mobile Nav Variables
+$bg-mobile-nav-inactive: rgba(195, 195, 195, 1.0);
+$bg-mobile-nav-active: rgba(155, 155, 155, 1.0);

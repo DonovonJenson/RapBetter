@@ -18,3 +18,4 @@ module.exports.ModelName = require('./pathToModel')   <--- You can omit the .js 
 */
 
 module.exports.RhymeSet = require('./rhymeSet');
+module.exports.Word = require('./word');

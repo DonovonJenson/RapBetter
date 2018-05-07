@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-family: gordita,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 1.5vh;
+  background-color: $bg-primary-color;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+  html {
+    font-size: 3.5vh;
+  }
+}
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+  html {
+    font-size: 1.8vh;
+  }
+}

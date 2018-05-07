@@ -1,0 +1,168 @@
+// Uniform sizing for both the Mobile Nav Wrapper and Mobile Nav Toggle
+
+.mobile-nav-wrapper, .mobile-nav-toggle {
+  @include justify-end;
+  cursor: pointer;
+  position: absolute;
+  display: none;
+  height: $navigation-height / 3 * 2;
+  width: $navigation-height / 3 * 2;
+  z-index: 1000;
+}
+
+// Set the display of the toggle on (standard block)
+
+.mobile-nav-toggle {
+  display: block;
+}
+
+.mobile-nav-toggle.is-active > span {
+  background-color: transparent;
+}
+.mobile-nav-toggle.is-active > span::before {
+  @include mobile-nav-toggle-active(45deg);
+}
+.mobile-nav-toggle.is-active > span::after {
+  @include mobile-nav-toggle-active(-45deg);
+}
+
+// Mobile Nav Menu Container
+
+.mobile-nav-menu {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  width: 100%;
+  margin-top: $navigation-height;
+  transition: $standard-transition;
+  z-index: 2000;
+  height: 0vh;
+  pointer-events: none;
+}
+
+.mobile-nav-menu.is-active {
+  position: absolute;
+  opacity: 1.0;
+  height: 100vh;
+  background: $bg-tertiary-color;
+  overflow-y: scroll;
+  pointer-events: auto;
+}
+
+// Mobile Nav Content Container
+
+.mobile-nav-content {
+  padding: 4vw;
+}
+
+.mobile-nav-content ul {
+  margin-top: 5vh;
+  padding-left: 0;
+}
+
+.mobile-nav-content li {
+  @include flex;
+  @include justify-end;
+  margin-bottom: 5vh;
+  list-style-type: none;
+}
+
+.mobile-nav-content li a {
+  color: $text-primary-color;
+  text-decoration: none;
+}
+
+
+
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+
+  .mobile-nav-wrapper, .mobile-nav-toggle {
+    height: $navigation-height-mobile-landscape / 2;
+    width: $navigation-height-mobile-landscape / 2;
+  }
+
+  .mobile-nav-wrapper {
+    display: block;
+    top: $navigation-height-mobile-landscape / 4;
+    right: 2.5vw;
+  }
+
+  .mobile-nav-toggle > span {
+    @include menu-bar(($navigation-height-mobile-landscape / 2) / 9, ($navigation-height-mobile-landscape / 2) / 9);
+  }
+
+  .mobile-nav-toggle > span::before {
+    @include menu-bar(($navigation-height-mobile-landscape / 2) / 9, (($navigation-height-mobile-landscape / 2) / 9) * 3);
+  }
+
+  .mobile-nav-toggle > span::after {
+    @include menu-bar(($navigation-height-mobile-landscape / 2) / 9, (($navigation-height-mobile-landscape / 2) / 9) * 6);
+  }
+
+  .mobile-nav-toggle.is-active > span::before {
+    top: (($navigation-height-mobile-landscape / 2) / 9) * 3;
+  }
+
+  .mobile-nav-toggle.is-active > span::after {
+    top: (($navigation-height-mobile-landscape / 2) / 9) * 3;
+  }
+
+  .mobile-nav-menu {
+    margin-top: $navigation-height-mobile-landscape;
+  }
+
+  .mobile-nav-content li {
+    font-size: 4.5vh;
+  }
+
+}
+
+
+
+
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+
+  .mobile-nav-wrapper, .mobile-nav-toggle {
+    height: $navigation-height-mobile-portrait / 2;
+    width: $navigation-height-mobile-portrait / 2;
+  }
+
+  .mobile-nav-wrapper {
+    display: block;
+    top: $navigation-height-mobile-portrait / 4;
+    right: 4vw;
+  }
+
+  .mobile-nav-toggle > span {
+    @include menu-bar(($navigation-height-mobile-portrait / 2) / 9, ($navigation-height-mobile-portrait / 2) / 9 );
+  }
+
+  .mobile-nav-toggle > span::before {
+    @include menu-bar(($navigation-height-mobile-portrait / 2) / 9, (($navigation-height-mobile-portrait / 2) / 9) * 3);
+  }
+
+  .mobile-nav-toggle > span::after {
+    @include menu-bar(($navigation-height-mobile-portrait / 2) / 9, (($navigation-height-mobile-portrait / 2) / 9) * 6);
+  }
+
+  .mobile-nav-toggle.is-active > span::before {
+    top: (($navigation-height-mobile-portrait / 2) / 9) * 3;
+  }
+
+  .mobile-nav-toggle.is-active > span::after {
+    top: (($navigation-height-mobile-portrait / 2) / 9) * 3;
+  }
+
+  .mobile-nav-menu {
+    margin-top: $navigation-height-mobile-portrait;
+  }
+
+  .mobile-nav-content li {
+    font-size: 2.7vh;
+  }
+
+}

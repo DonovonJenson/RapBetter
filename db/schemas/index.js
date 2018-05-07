@@ -18,3 +18,4 @@ module.exports.schemaName = require('./pathToModel')   <--- You can omit the .js
 */
 
 module.exports.rhymeSetSchema = require('./rhymeSetSchema');
+module.exports.wordSchema = require('./wordSchema')

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Navbar from './navbar.jsx';
@@ -36,7 +35,7 @@ class Homepage extends React.Component {
               <div className="main-nav-content">
               <Route exact path="/" component={Homepagecontent} />
               <Route path="/raptool" component={Raptools} />
-              <Route path="/videos" render={ () =><Videos videosToShow={this.state.videosOnVidsPage} /> } />
+              <Route path="/videos" render={ () => <Videos videosToShow={this.state.videosOnVidsPage} /> } />
               <Route path="/about" component={About} />
               <Route path="/courses" component={Courses} />
               </div>
