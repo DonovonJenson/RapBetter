@@ -10,6 +10,7 @@
   height: $navigation-height;
   width: 100vw;
   background-color: $bg-primary-color;
+  z-index: 9001;
 }
 
 .navigation a {

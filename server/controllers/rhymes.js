@@ -12,29 +12,27 @@ module.exports.fetchRhymes = (word) => {
 
 module.exports.filterRhymesBySyllables = (input, targetSyllables) => {
 
-  let filtered = [];
 
-  if (Array.isArray(input)) {
-
-    input.forEach(rhyme => {
-      if (Number(rhyme.syllables) === targetSyllables) {
+  // declare universal filtering function
+  let filterBySyllables = (list) => {
+    let filtered = [];
+    list.forEach(rhyme => {
+      if (Number(rhyme.syllables) === Number(targetSyllables)) {
         filtered.push(rhyme);
       }
     });
     return filtered;
+  };
 
+  // if the input is an array, we have an already extracted list
+  if (Array.isArray(input)) {
+    return filterBySyllables(input);
   } else {
-
+    // if the input is a string, the we have to get a results list first, then filter
     return this.fetchRhymes(input)
       .then(results => {
-        results.data.forEach(result => {
-          if (result.syllables === targetSyllables) {
-            filtered.push(result);
-          }
-        });
-        return filtered;
+        return filterBySyllables(results.data);
       });
-
   }
 
 };
@@ -45,29 +43,48 @@ module.exports.filterRhymesBySyllables = (input, targetSyllables) => {
 
 module.exports.filterRhymesByScore = (input, targetScore) => {
 
-  let filtered = [];
-
-  if (Array.isArray(input)) {
-
-    input.forEach(rhyme => {
-      if (Number(rhyme.score) >= targetScore) {
+  // declare universal filtering function
+  let filterByScore = (list) => {
+    let filtered = [];
+    list.forEach(rhyme => {
+      if (Number(rhyme.score) >= Number(targetScore)) {
         filtered.push(rhyme);
       }
     });
     return filtered;
+  };
 
+  // if the input is an array, we have an already extracted list
+  if (Array.isArray(input)) {
+    return filterByScore(input);
   } else {
-
+    // if the input is a string, the we have to get a results list first, then filter
     return this.fetchRhymes(input)
       .then(results => {
-        results.data.forEach(result => {
-          if (result.score === targetScore) {
-            filtered.push(result);
-          }
-        });
-        return fitered;
+        return filterByScore(results.data);
       });
-
   }
+
+};
+
+
+// Input takes in an array of rhyme objects, and a configuration string matching an property to compare against
+
+module.exports.bubbleSortRhymes = (list, config) => {
+
+  let filter = config || 'freq'; // If no config is supplied, default to bubble search by frequency
+  let length = list.length;
+
+  for (let i = length - 1; i >= 0; i--) {
+    for (let j = 1; j <= i; j++) {
+      if (Number(list[j - 1][filter]) < Number(list[j][filter])) {
+        let temp = list[j - 1];
+        list[j - 1] = list[j];
+        list[j] = temp;
+      }
+    }
+  }
+
+  return list;
 
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import Jumbotron from '../components/Jumbotron';
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,7 @@ export default class Home extends React.Component {
   }
 
   testWordFetch() {
-    axios.post('/fetchRhymes', {word: 'hello'})
+    axios.post('/fetch-quick-rhymes', {word: 'hello'})
       .then(results => {
         console.log(results);
       });
@@ -19,9 +21,9 @@ export default class Home extends React.Component {
 
     return (
 
-      <div id="home-page">
+      <section id="home-page">
 
-        <div className="jumbotron"/>
+        <Jumbotron />
 
         <div className="page">
 
@@ -29,10 +31,10 @@ export default class Home extends React.Component {
 
         </div>
 
-      </div>
+      </section>
 
     );
 
   }
 
-}
+};
