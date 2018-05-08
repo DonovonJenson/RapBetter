@@ -1,35 +1,51 @@
 .jumbotron {
   @include flex;
   @include flex-column;
-  @include align-center;  // temporary
-  @include justify-end; // temporary
-  height: 100vh - $navigation-height;
-  width: 100%;
+  @include align-center;
+  @include justify-end;
   background: radial-gradient(rgba(142, 121, 62, 0.2) 0%, rgba(3, 3, 3, 1.0)100%, transparent), url(./../../public/images/test2.jpg) no-repeat center, rgb(3, 3, 3);
   background-size: 100% auto;
   background-attachment: fixed;
   color: $text-primary-color;
+  height: 100vh - $navigation-height;
+  width: 100vw;
 }
 
 .jumbotron-form-wrapper {
   @include flex;
   @include flex-column;
-  @include align-center;  // temporary
   position: relative;
   top: 0;
   left: 0;
   width: 100vw;
 }
 
-.jumbotron-form-wrapper input {
-  padding: 0 2vw;
-  height: 10vh;
-  width: 100vw;
-  background: linear-gradient(to right, rgba(142, 121, 62, 0.1) 0%, rgba(142, 121, 62, 0.0) 100%, transparent);
-  border: none;
-  font-size: 5vh;
-  color: rgba(235, 235, 235, 0.6);
+// JUMBOTRON TITLE
+
+.jumbotron-form-title {
+  color: rgba(135, 135, 135, 0.2);
+  font-size: 6vh;
+  margin: 0.5vh 2vw;
+  width: 96vw;
   transition: $standard-transition;
+}
+
+.jumbotron-form-title:hover {
+  color: rgba(135, 135, 135, 0.4);
+}
+
+
+// JUMBOTRON INPUT
+
+.jumbotron-form-wrapper input {
+  background: linear-gradient(to right, rgba(142, 121, 62, 0.2) 0%, rgba(142, 121, 62, 0.0) 50%, transparent);
+  border: none;
+  color: rgba(235, 235, 235, 0.6);
+  font-size: $jumbotron-input-height / 2;
+  height: $jumbotron-input-height;
+  padding: 0 2vw;
+  transition: $standard-transition;
+  width: 100vw;
 }
 
 .jumbotron-form-wrapper input:hover {
@@ -71,11 +87,78 @@
   color: rgba(235, 235, 235, 0.6);
 }
 
+
+// JUMBOTRON INPUT RESULTS LIST
+
+.jumbotron-form-results {
+  @include flex;
+  @include align-center;
+  height: 0;
+  width: 100vw;
+  overflow-x: scroll;
+  transition: $standard-transition;
+}
+
+.jumbotron-form-results.results-in {
+  height: $jumbotron-input-height;
+  background-color: rgba(35, 35, 35, 0.8);
+  overflow-x: scroll;
+}
+
+// JUMBOTRON INPUT RESULT ENTRY
+
+.jumbotron-form-result {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  font-size: $jumbotron-input-height / 2 - 1;
+  min-height: $jumbotron-input-height;
+  margin: 0 2.5vw;
+  width: 20vw;
+}
+
+.jumbotron-form-result:last-child {
+  padding-right: 2.5vw;
+}
+
 @media screen and (orientation: landscape) and (max-width: 1200px) {
+
   .jumbotron {
     height: 100vh - $navigation-height-mobile-landscape;
     background-size: 100% auto;
   }
+
+  .jumbotron-form-wrapper input {
+    text-align: center;
+    padding: 0 2vw;
+    height: $jumbotron-input-height-mobile-landscape;
+    font-size: $jumbotron-input-height-mobile-landscape / 2 - 1;
+  }
+
+  .jumbotron-form-title {
+
+  }
+
+  .jumbotron-form-results {
+    height: 0;
+    width: 100vw;
+    overflow-y: scroll;
+
+  }
+
+  .jumbotron-form-results.results-in {
+    height: $jumbotron-input-height-mobile-landscape;
+    background-color: $bg-primary-color;
+    overflow-y: scroll;
+  }
+
+  .jumbotron-form-result {
+    min-height: $jumbotron-input-height-mobile-landscape;
+    font-size: $jumbotron-input-height-mobile-landscape / 2 - 2;
+    width: 100vw;
+  }
+
+
 }
 
 @media screen and (orientation: portrait) and (max-width: 1200px) {
@@ -84,4 +167,34 @@
     background-size: auto 100%;
     background-position: 75% 50%;
   }
+
+  .jumbotron-form-wrapper input {
+    height: $jumbotron-input-height-mobile-portrait;
+    font-size: $jumbotron-input-height-mobile-portrait / 2 - 4;
+    padding: 0 5vw;
+    text-align: center;
+  }
+
+  .jumbotron-form-title {
+    text-align: center;
+    font-size: 4vh;
+  }
+
+  .jumbotron-form-results {
+    @include flex;
+    @include flex-column
+    @include align-center;
+  }
+
+  .jumbotron-form-results.results-in {
+    height: 30vh;
+    background-color: $bg-primary-color;
+    overflow-y: scroll;
+  }
+
+  .jumbotron-form-result {
+    font-size: 3.5vh;
+    width: 100vw;
+  }
+
 }
