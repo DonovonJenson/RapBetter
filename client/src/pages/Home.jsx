@@ -17,11 +17,23 @@ export default class Home extends React.Component {
 
         <Jumbotron />
 
-        <div className="page">
+        <section id="rap-tool" className="page">
 
-          HOME PAGE
+          RAP TOOL
 
-        </div>
+        </section>
+
+        <section id="tutorials" className="page">
+
+          TUTORIALS
+
+        </section>
+
+        <section id="courses" className="page">
+
+          FULL COURSES
+
+        </section>
 
       </section>
 
