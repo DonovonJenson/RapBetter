@@ -1,22 +1,74 @@
 .jumbotron {
   @include flex;
+  @include flex-column;
   @include align-center;  // temporary
-  @include justify-center; // temporary
+  @include justify-end; // temporary
   height: 100vh - $navigation-height;
   width: 100%;
-  background: radial-gradient(rgba(142, 121, 62, 0.2) 0%, rgba(3, 3, 3, 0.8)100%, transparent), url(./../../public/images/test2.jpg) no-repeat center, rgb(3, 3, 3);
+  background: radial-gradient(rgba(142, 121, 62, 0.2) 0%, rgba(3, 3, 3, 1.0)100%, transparent), url(./../../public/images/test2.jpg) no-repeat center, rgb(3, 3, 3);
   background-size: 100% auto;
   background-attachment: fixed;
   color: $text-primary-color;
 }
 
-.form-wrapper {
+.jumbotron-form-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;  // temporary
   position: relative;
-  bottom: 0;
+  top: 0;
   left: 0;
-  height: 25vh;
-  width: 25vh;
-  background-color: rgba(142, 121, 62, 0.4);
+  width: 100vw;
+}
+
+.jumbotron-form-wrapper input {
+  padding: 0 2vw;
+  height: 10vh;
+  width: 100vw;
+  background: linear-gradient(to right, rgba(142, 121, 62, 0.1) 0%, rgba(142, 121, 62, 0.0) 100%, transparent);
+  border: none;
+  font-size: 5vh;
+  color: rgba(235, 235, 235, 0.6);
+  transition: $standard-transition;
+}
+
+.jumbotron-form-wrapper input:hover {
+  @include std-box-shadow;
+  color: rgba(235, 235, 235, 1.0);
+}
+
+.jumbotron-form-wrapper input:focus {
+  outline: none !important;
+}
+
+.jumbotron-form-wrapper input::-webkit-input-placeholder {
+  transition: $standard-transition;
+  color: rgba(235, 235, 235, 0.3);
+}
+.jumbotron-form-wrapper input:-ms-input-placeholder {
+  transition: $standard-transition;
+  color: rgba(235, 235, 235, 0.3);
+}
+.jumbotron-form-wrapper input::-ms-input-placeholder {
+  transition: $standard-transition;
+  color: rgba(235, 235, 235, 0.3);
+}
+.jumbotron-form-wrapper input::placeholder {
+  transition: $standard-transition;
+  color: rgba(235, 235, 235, 0.3);
+}
+
+.jumbotron-form-wrapper input:hover::-webkit-input-placeholder {
+  color: rgba(235, 235, 235, 0.6);
+}
+.jumbotron-form-wrapper input:hover:-ms-input-placeholder {
+  color: rgba(235, 235, 235, 0.6);
+}
+.jumbotron-form-wrapper input:hover::-ms-input-placeholder {
+  color: rgba(235, 235, 235, 0.6);
+}
+.jumbotron-form-wrapper input:hover::placeholder {
+  color: rgba(235, 235, 235, 0.6);
 }
 
 @media screen and (orientation: landscape) and (max-width: 1200px) {

@@ -9,7 +9,16 @@ export default class Jumbotron extends React.Component {
 
     return (
 
-      <div className="jumbotron"/>
+      <div className="jumbotron">
+
+        <div className="jumbotron-form-wrapper">
+          <input 
+            placeholder="Enter a word to rhyme"
+            onChange={e => console.log(e.target.value)}
+          />
+        </div>
+
+      </div>
 
     );
 

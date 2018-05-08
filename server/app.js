@@ -30,12 +30,14 @@ app.post('/fetch-quick-rhymes', (req, res) => {
   // bubble sort the results by frequency (indicating more likelihood in the result)
   // send the results back to the client
 
-  controllers.wordInfo.fetchWordInfo(req.body.word)
+  let keyword = req.body.word.toLowerCase();
+
+  controllers.wordInfo.fetchWordInfo(keyword)
     .then(result => {
       return controllers.wordInfo.extractWordSyllables(result);
     })
     .then(syllables => {
-      return controllers.rhymes.filterRhymesBySyllables(req.body.word, syllables);
+      return controllers.rhymes.filterRhymesBySyllables(keyword, syllables);
     })
     .then(syllableResults => {
       return controllers.rhymes.filterRhymesByScore(syllableResults, 300);
