@@ -51,7 +51,7 @@ export default class Jumbotron extends React.Component {
 
         <div className="jumbotron-form-wrapper">
 
-          <div className="jumbotron-form-title">
+          <div className="jumbotron-form-title no-select">
             QUICK RHYME
           </div>
 

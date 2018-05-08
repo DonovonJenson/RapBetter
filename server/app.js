@@ -47,6 +47,9 @@ app.post('/fetch-quick-rhymes', (req, res) => {
     })
     .then(sortedResults => {
       res.status(201).send(sortedResults);
+    })
+    .catch(err => {
+      res.status(400).send(err);
     });
 
 

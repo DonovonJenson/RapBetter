@@ -6,14 +6,6 @@ import Jumbotron from '../components/Jumbotron';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.testWordFetch = this.testWordFetch.bind(this);
-  }
-
-  testWordFetch() {
-    axios.post('/fetch-quick-rhymes', {word: 'hello'})
-      .then(results => {
-        console.log(results);
-      });
   }
 
 
@@ -27,7 +19,7 @@ export default class Home extends React.Component {
 
         <div className="page">
 
-          <button onClick={this.testWordFetch}>TEST RHYMES</button>
+          HOME PAGE
 
         </div>
 

@@ -23,7 +23,7 @@
 // JUMBOTRON TITLE
 
 .jumbotron-form-title {
-  color: rgba(135, 135, 135, 0.2);
+  color: rgba(135, 135, 135, 0.4);
   font-size: 6vh;
   margin: 0.5vh 2vw;
   width: 96vw;
@@ -31,7 +31,7 @@
 }
 
 .jumbotron-form-title:hover {
-  color: rgba(135, 135, 135, 0.4);
+  color: rgba(135, 135, 135, 0.6);
 }
 
 
@@ -126,13 +126,15 @@
   .jumbotron {
     height: 100vh - $navigation-height-mobile-landscape;
     background-size: 100% auto;
+    background-attachment: scroll;
   }
 
   .jumbotron-form-wrapper input {
-    text-align: center;
-    padding: 0 2vw;
-    height: $jumbotron-input-height-mobile-landscape;
+    background: linear-gradient(to right, rgba(142, 121, 62, 0.6) 0%, rgba(142, 121, 62, 0.4) 100%, transparent);
     font-size: $jumbotron-input-height-mobile-landscape / 2 - 1;
+    height: $jumbotron-input-height-mobile-landscape;
+    padding: 0 2vw;
+    text-align: center;
   }
 
   .jumbotron-form-title {
@@ -165,12 +167,14 @@
   .jumbotron {
     height: 100vh - $navigation-height-mobile-portrait;
     background-size: auto 100%;
-    background-position: 75% 50%;
+    background-position: 65% 50%;
+    background-attachment: scroll;
   }
 
   .jumbotron-form-wrapper input {
-    height: $jumbotron-input-height-mobile-portrait;
+    background: linear-gradient(to right, rgba(142, 121, 62, 0.6) 0%, rgba(142, 121, 62, 0.4) 100%, transparent);
     font-size: $jumbotron-input-height-mobile-portrait / 2 - 4;
+    height: $jumbotron-input-height-mobile-portrait;
     padding: 0 5vw;
     text-align: center;
   }
@@ -195,6 +199,10 @@
   .jumbotron-form-result {
     font-size: 3.5vh;
     width: 100vw;
+  }
+
+  .jumbotron-form-result:last-child {
+    padding-right: 0;
   }
 
 }
