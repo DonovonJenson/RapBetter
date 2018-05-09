@@ -25,6 +25,13 @@ $product-feature-height-mobile-portrait: 90vh;
 $product-feature-height-mobile-landscape: 85vh;
 $product-feature-width: 88vw;
 
+
+// Page Variables
+
+$video-content-wrapper-height: (100vh - $navigation-height) - 6;
+$video-content-wrapper-width: 95vw;
+
+
 // Transitions
 $standard-time: 0.4s;
 

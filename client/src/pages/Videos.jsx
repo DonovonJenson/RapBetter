@@ -11,18 +11,38 @@ const Home = (props) => {
         <div className="video-player-wrapper">
 
           <div className="video-player-current">
-
+            Current Video
           </div>
 
           <div className="video-player-current-description">
-
+            Description
           </div>
 
         </div>
 
         <div className="videos-list-wrapper">
 
-          {/* Here will be the dynamic list for all the videos */}
+          <div className="videos-list-entry">
+            Entry 1
+          </div>
+          <div className="videos-list-entry">
+            Entry 2
+          </div>
+          <div className="videos-list-entry">
+            Entry 3
+          </div>
+          <div className="videos-list-entry">
+            Entry 4
+          </div>
+          <div className="videos-list-entry">
+            Entry 5
+          </div>
+          <div className="videos-list-entry">
+            Entry 6
+          </div>
+          <div className="videos-list-entry">
+            Entry 7
+          </div>
 
         </div>
 

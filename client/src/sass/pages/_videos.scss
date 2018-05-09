@@ -1,0 +1,48 @@
+.videos-content-wrapper {
+  @include flex;
+  background-color: rgba(35, 35, 35, 0.2);
+  margin: $video-content-wrapper-height * 0.05 0;
+  min-height: $video-content-wrapper-height;
+  width: $video-content-wrapper-width;
+}
+
+.video-player-wrapper {
+  background-color: rgba(35, 35, 35, 0.2);
+  min-height: $video-content-wrapper-height;
+  width: $video-content-wrapper-width * 0.7;
+}
+
+.video-player-current {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(35, 35, 35, 0.2);
+  height: $video-content-wrapper-height * 0.7;
+  width: 100%;
+}
+
+.video-player-current-description {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  height: $video-content-wrapper-height * 0.3;
+  width: 100%;
+}
+
+.videos-list-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  height: $video-content-wrapper-height;
+  overflow-y: scroll;
+  width: $video-content-wrapper-width * 0.3;
+}
+
+.videos-list-entry {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background: linear-gradient(to bottom, rgba(35, 35, 35, 0.2) 0%, rgba(45, 45, 45, 0.1) 10%, rgba(45, 45, 45, 0.1) 90%, rgba(35, 35, 35, 0.2) 100%);
+  min-height: $video-content-wrapper-height * 0.25;
+  width: $video-content-wrapper-width * 0.3;
+}
