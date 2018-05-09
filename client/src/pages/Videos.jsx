@@ -1,4 +1,5 @@
 import React from 'react';
+import YouTube from 'react-youtube';
 
 const Home = (props) => {
 
@@ -11,7 +12,7 @@ const Home = (props) => {
         <div className="video-player-wrapper">
 
           <div className="video-player-current">
-            Current Video
+            <YouTube videoId="ge0KWuwf1gA" opts={{height: '100%', width: '100%'}}/>
           </div>
 
           <div className="video-player-current-description">
