@@ -6,7 +6,27 @@ const Home = (props) => {
 
     <div id="videos-page" className="page">
 
-      VIDEOS PAGE
+      <div className="videos-content-wrapper">
+
+        <div className="video-player-wrapper">
+
+          <div className="video-player-current">
+
+          </div>
+
+          <div className="video-player-current-description">
+
+          </div>
+
+        </div>
+
+        <div className="videos-list-wrapper">
+
+          {/* Here will be the dynamic list for all the videos */}
+
+        </div>
+
+      </div>
 
     </div>
 
