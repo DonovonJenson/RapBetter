@@ -5,9 +5,9 @@
 
     The rule of thumb for this folder is that it should not output a single line of CSS when compiled on its own. These are nothing but Sass helpers.
 */
-@import 'abstracts/helpers';
-@import 'abstracts/mixins';
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/helpers';
 
 
 /**
@@ -24,7 +24,9 @@
 
     For small components, there is the components/ folder. While layout/ is macro (defining the global wireframe), components/ is more focused on widgets. It contains all kind of specific modules like a slider, a loader, a widget, and basically anything along those lines. There are usually a lot of files in components/ since the whole site/application should be mostly composed of tiny modules.
 */
+@import 'components/button';
 @import 'components/mobile-menu';
+@import 'components/product-feature';
 
 
 /** 

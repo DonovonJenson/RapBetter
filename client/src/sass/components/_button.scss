@@ -1,0 +1,37 @@
+.button-std {
+  @include std-box-shadow;
+  background-color: $bg-tertiary-color;
+  border-color: $bg-tertiary-color;
+  border-width: 0.2vh;
+  border-radius: 0.2vh;
+  color: $text-primary-color;
+  cursor: pointer;
+  font-size: 2vh;
+  min-height: 5vh;
+  min-width: 15vw;
+  transition: $standard-transition;
+}
+
+.button-std:hover {
+  background-color: rgba(172, 151, 92, 1.0);
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+
+  .button-std {
+    align-self: center;
+    font-size: 4vh;
+    min-height: 10vh;
+    min-width: 20vw;
+  }
+
+}
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+
+  .button-std {
+    min-width: 100%;
+    min-height: 10vh;
+  }
+
+}
