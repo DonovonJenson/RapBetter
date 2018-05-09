@@ -19,12 +19,24 @@
   align-items: center;  // for everything else
 }
 
+@mixin align-self-center {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
 // Flex Justify Mixins
 
 @mixin justify-center {
   -webkit-box-pack: center;  // for Safari
   -ms-flex-pack: center;  // for IE
   justify-content: center;  // for everything else
+}
+
+@mixin justify-space-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 @mixin justify-start {
@@ -37,6 +49,14 @@
   -webkit-box-pack: end;  // for Safari
   -ms-flex-pack: end;  // for IE
   justify-content: flex-end;  // for everything else
+}
+
+// FLEX ORDER 
+
+@mixin flex-order($order) {
+  -webkit-box-ordinal-group: $order;
+  -ms-flex-order: $order;
+  order: $order;
 }
 
 
