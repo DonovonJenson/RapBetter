@@ -91,3 +91,27 @@
   width: 100%;
   transition: $standard-transition;
 }
+
+
+// PERSPECTIVE Mixins
+
+@mixin perspective($value) {
+  -webkit-perspective: $value;
+  perspective: $value;
+}
+
+@mixin perspective-preserve-3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+@mixin perspective-rotate-x($value) {
+  -webkit-transform: rotateX($value);
+  transform: rotateX($value);
+}
+
+
+
+
+
+
