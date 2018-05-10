@@ -2,16 +2,46 @@
   @include flex;
   @include align-center;
   @include justify-center;
+  @include perspective(100vh);
   min-width: $product-feature-width;
+  transition: $standard-transition;
 }
 
 .product-feature-image-wrapper {
+  @include perspective-preserve-3d;
   margin-right: $product-feature-width * 0.05 / 2;
+  transition: $long-transition;
   width: $product-feature-width * 0.4;
 }
 
+.product-feature.up .product-feature-image-wrapper{
+  @include perspective-rotate-x(5deg);
+}
+
+.product-feature.loaded .product-feature-image-wrapper{
+  @include perspective-rotate-x(0deg);
+}
+
+.product-feature.down .product-feature-image-wrapper{
+  @include perspective-rotate-x(-5deg);
+}
+
 .product-feature-image-wrapper.swap {
+  @include perspective-preserve-3d;
   margin-left: $product-feature-width * 0.05 / 2;
+  transition: $long-transition;
+}
+
+.product-feature.up .product-feature-image-wrapper.swap {
+  @include perspective-rotate-x(5deg);
+}
+
+.product-feature.loaded .product-feature-image-wrapper.swap {
+  @include perspective-rotate-x(0deg);
+}
+
+.product-feature.down .product-feature-image-wrapper.swap {
+  @include perspective-rotate-x(-5deg);
 }
 
 .product-feature-image {
@@ -33,12 +63,40 @@
 
 .product-feature-description-wrapper {
   @include justify-space-between;
+  @include perspective-preserve-3d;
   margin-left: $product-feature-width * 0.05 / 2;
+  transition: $long-transition;
   width: $product-feature-width * 0.5;
 }
 
+.product-feature.up .product-feature-description-wrapper{
+  @include perspective-rotate-x(10deg);
+}
+
+.product-feature.loaded .product-feature-description-wrapper{
+  @include perspective-rotate-x(0deg);
+}
+
+.product-feature.down .product-feature-description-wrapper{
+  @include perspective-rotate-x(-10deg);
+}
+
 .product-feature-description-wrapper.swap {
+  @include perspective-preserve-3d;
+  transition: $long-transition;
   margin-right: $product-feature-width * 0.05 / 2;
+}
+
+.product-feature.up .product-feature-description-wrapper.swap {
+  @include perspective-rotate-x(10deg);
+}
+
+.product-feature.loaded .product-feature-description-wrapper.swap {
+  @include perspective-rotate-x(0deg);
+}
+
+.product-feature.down .product-feature-description-wrapper.swap {
+  @include perspective-rotate-x(-10deg);
 }
 
 .product-feature-description p {

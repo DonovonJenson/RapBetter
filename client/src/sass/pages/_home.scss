@@ -1,9 +1,10 @@
-#home-page {
+#home-page .page {
+  min-height: 70vh;
 }
 
 @media screen and (orientation: landscape) and (max-width: 1200px) {
 
-  #home-page {
+  #home-page.page {
   }
 
 }
@@ -11,7 +12,7 @@
 
 @media screen and (orientation: portrait) and (max-width: 1200px) {
 
-  #home-page {
+  #home-page.page {
   }
 
 }
