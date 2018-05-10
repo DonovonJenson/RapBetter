@@ -15,7 +15,7 @@
 }
 
 .product-feature.up .product-feature-image-wrapper{
-  @include perspective-rotate-x(10deg);
+  @include perspective-rotate-x(5deg);
 }
 
 .product-feature.loaded .product-feature-image-wrapper{
@@ -23,7 +23,7 @@
 }
 
 .product-feature.down .product-feature-image-wrapper{
-  @include perspective-rotate-x(-10deg);
+  @include perspective-rotate-x(-5deg);
 }
 
 .product-feature-image-wrapper.swap {
@@ -33,7 +33,7 @@
 }
 
 .product-feature.up .product-feature-image-wrapper.swap {
-  @include perspective-rotate-x(10deg);
+  @include perspective-rotate-x(5deg);
 }
 
 .product-feature.loaded .product-feature-image-wrapper.swap {
@@ -41,7 +41,7 @@
 }
 
 .product-feature.down .product-feature-image-wrapper.swap {
-  @include perspective-rotate-x(-10deg);
+  @include perspective-rotate-x(-5deg);
 }
 
 .product-feature-image {
