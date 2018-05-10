@@ -63,8 +63,13 @@
 // Box-Shadow Mixins
 
 @mixin std-box-shadow {
-  -webkit-box-shadow: 0 0.5vh 0.5vh $standard-shadow;
-  box-shadow: 0 0.5vh 0.5vh $standard-shadow;
+  -webkit-box-shadow: 0 1.0vh 0.5vh -0.5vh $standard-shadow, 0 1.2vh 0.8vh -0.8vh $standard-shadow;
+  box-shadow: 0 1.0vh 0.5vh -0.5vh $standard-shadow, 0 1.2vh 0.8vh -0.8vh $standard-shadow;
+}
+
+@mixin std-inset-shadow {
+  -webkit-box-shadow: inset 0 0.05vh 0.5vh $standard-shadow, inset 0 0.1vh 2vh $standard-shadow;
+  box-shadow: inset 0 0.05vh 0.5vh $standard-shadow, inset 0 0.1vh 2vh $standard-shadow;
 }
 
 // Menu Bar
@@ -86,3 +91,27 @@
   width: 100%;
   transition: $standard-transition;
 }
+
+
+// PERSPECTIVE Mixins
+
+@mixin perspective($value) {
+  -webkit-perspective: $value;
+  perspective: $value;
+}
+
+@mixin perspective-preserve-3d {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+@mixin perspective-rotate-x($value) {
+  -webkit-transform: rotateX($value);
+  transform: rotateX($value);
+}
+
+
+
+
+
+
