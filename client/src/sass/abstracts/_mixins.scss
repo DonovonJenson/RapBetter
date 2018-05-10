@@ -62,6 +62,11 @@
 
 // Box-Shadow Mixins
 
+@mixin nav-shadow {
+  -webkit-box-shadow: 0 0.5vh 0.5vh $standard-shadow;
+  box-shadow: 0 0.5vh 0.5vh $standard-shadow;
+}
+
 @mixin std-box-shadow {
   -webkit-box-shadow: 0 1.0vh 0.5vh -0.5vh $standard-shadow, 0 1.2vh 0.8vh -0.8vh $standard-shadow;
   box-shadow: 0 1.0vh 0.5vh -0.5vh $standard-shadow, 0 1.2vh 0.8vh -0.8vh $standard-shadow;

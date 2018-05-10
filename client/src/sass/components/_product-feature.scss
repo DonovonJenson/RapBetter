@@ -118,6 +118,38 @@
     font-size: 4vh;
   }
 
+  .product-feature.up .product-feature-image-wrapper{
+    @include perspective-rotate-x(15deg);
+  }
+
+  .product-feature.down .product-feature-image-wrapper{
+    @include perspective-rotate-x(-15deg);
+  }
+
+  .product-feature.up .product-feature-image-wrapper.swap {
+    @include perspective-rotate-x(15deg);
+  }
+
+  .product-feature.down .product-feature-image-wrapper.swap {
+    @include perspective-rotate-x(-15deg);
+  }
+
+  .product-feature.up .product-feature-description-wrapper{
+    @include perspective-rotate-x(15deg);
+  }
+
+  .product-feature.down .product-feature-description-wrapper{
+    @include perspective-rotate-x(-15deg);
+  }
+
+  .product-feature.up .product-feature-description-wrapper.swap {
+    @include perspective-rotate-x(15deg);
+  }
+
+  .product-feature.down .product-feature-description-wrapper.swap {
+    @include perspective-rotate-x(-15deg);
+  }
+
 }
 
 
@@ -146,6 +178,38 @@
 
   .product-feature-description p {
     font-size: 3vh;
+  }
+
+  .product-feature.up .product-feature-image-wrapper{
+    @include perspective-rotate-x(10deg);
+  }
+
+  .product-feature.down .product-feature-image-wrapper{
+    @include perspective-rotate-x(-10deg);
+  }
+
+  .product-feature.up .product-feature-image-wrapper.swap {
+    @include perspective-rotate-x(10deg);
+  }
+
+  .product-feature.down .product-feature-image-wrapper.swap {
+    @include perspective-rotate-x(-10deg);
+  }
+
+  .product-feature.up .product-feature-description-wrapper{
+    @include perspective-rotate-x(10deg);
+  }
+
+  .product-feature.down .product-feature-description-wrapper{
+    @include perspective-rotate-x(-10deg);
+  }
+
+  .product-feature.up .product-feature-description-wrapper.swap {
+    @include perspective-rotate-x(10deg);
+  }
+
+  .product-feature.down .product-feature-description-wrapper.swap {
+    @include perspective-rotate-x(-10deg);
   }
 
 }
