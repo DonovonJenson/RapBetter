@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 
+const videos = [ 'ge0KWuwf1gA', '1auFCLoGOKs', 'dSM8EmIqpfE', 'QL-QFRKI0w4', '1auFCLoGOKs', 'GgYgX6xITIg', 'UXNfwCOSPTA', 'hJTWgEEviHc' ];
 
 const Home = (props) => {
 
