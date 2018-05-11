@@ -181,35 +181,35 @@
   }
 
   .product-feature.up .product-feature-image-wrapper{
-    @include perspective-rotate-x(10deg);
+    @include perspective-rotate-x(15deg);
   }
 
   .product-feature.down .product-feature-image-wrapper{
-    @include perspective-rotate-x(-10deg);
+    @include perspective-rotate-x(-15deg);
   }
 
   .product-feature.up .product-feature-image-wrapper.swap {
-    @include perspective-rotate-x(10deg);
+    @include perspective-rotate-x(15deg);
   }
 
   .product-feature.down .product-feature-image-wrapper.swap {
-    @include perspective-rotate-x(-10deg);
+    @include perspective-rotate-x(-15deg);
   }
 
   .product-feature.up .product-feature-description-wrapper{
-    @include perspective-rotate-x(10deg);
+    @include perspective-rotate-x(15deg);
   }
 
   .product-feature.down .product-feature-description-wrapper{
-    @include perspective-rotate-x(-10deg);
+    @include perspective-rotate-x(-15deg);
   }
 
   .product-feature.up .product-feature-description-wrapper.swap {
-    @include perspective-rotate-x(10deg);
+    @include perspective-rotate-x(15deg);
   }
 
   .product-feature.down .product-feature-description-wrapper.swap {
-    @include perspective-rotate-x(-10deg);
+    @include perspective-rotate-x(-15deg);
   }
 
 }

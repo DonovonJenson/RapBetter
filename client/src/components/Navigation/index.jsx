@@ -24,6 +24,8 @@ export default class Navigation extends React.Component {
 
         <MobileNavToggle isMobile={isMobile}/>
 
+        <div className="mobile-nav-fade"/>
+
         <MobileNavMenu />
 
       </section>

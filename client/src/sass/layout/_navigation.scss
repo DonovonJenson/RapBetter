@@ -33,6 +33,7 @@
   @include align-center;
   @include justify-start;
   width: 20%;
+  z-index: 10000;
 }
 
 .navigation-logo {

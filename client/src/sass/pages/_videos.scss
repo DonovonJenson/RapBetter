@@ -1,6 +1,6 @@
 .videos-content-wrapper {
   @include flex;
-  margin: $video-content-wrapper-height * 0.05 0;
+  margin:  0 0 $video-content-wrapper-height * 0.05 0;
   min-height: $video-content-wrapper-height;
   width: $video-content-wrapper-width;
 }
@@ -64,6 +64,18 @@
     min-height: $video-content-wrapper-height-landscape;
   }
 
+  .video-player-current {
+    height: $video-content-wrapper-height-landscape * 0.7;
+  }
+
+  .video-player-current-description {
+    height: $video-content-wrapper-height-landscape * 0.3;
+  }
+
+  .videos-list-wrapper {
+    height: $video-content-wrapper-height-landscape;
+  }
+
   .videos-list-entry {
     min-height: $video-content-wrapper-height-landscape * 0.5;
   }
@@ -98,5 +110,8 @@
     width: 100vw;
   }
 
+  .videos-list-entry {
+    width: 100vw;
+  }
 
 }

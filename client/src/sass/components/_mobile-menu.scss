@@ -7,23 +7,48 @@
   display: none;
   height: $navigation-height / 3 * 2;
   width: $navigation-height / 3 * 2;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 // Set the display of the toggle on (standard block)
 
 .mobile-nav-toggle {
   display: block;
+  z-index: 10000;
 }
 
 .mobile-nav-toggle.is-active > span {
   background-color: transparent;
+  z-index: 10000;
 }
 .mobile-nav-toggle.is-active > span::before {
   @include mobile-nav-toggle-active(45deg);
 }
 .mobile-nav-toggle.is-active > span::after {
   @include mobile-nav-toggle-active(-45deg);
+}
+
+
+// Mobile Nav Fade-out
+
+.mobile-nav-fade {
+  background-color: rgba(5, 5, 5, 0.0);
+  display: block;
+  height: 100vh;
+  margin-top: $navigation-height;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.mobile-nav-fade.is-active {
+  opacity: 1.0;
+  background-color: rgba(5, 5, 5, 1.0);
+  position: absolute;
+  z-index: 1000;
 }
 
 // Mobile Nav Menu Container

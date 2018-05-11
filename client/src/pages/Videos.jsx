@@ -7,6 +7,8 @@ const Home = (props) => {
 
     <div id="videos-page" className="page">
 
+      <h1 className="page-title no-select">TUTORIALS</h1>
+
       <div className="videos-content-wrapper">
 
         <div className="video-player-wrapper">
@@ -16,7 +18,7 @@ const Home = (props) => {
           </div>
 
           <div className="video-player-current-description">
-            Description
+            description
           </div>
 
         </div>
