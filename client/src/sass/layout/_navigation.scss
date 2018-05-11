@@ -3,13 +3,13 @@
 .navigation {
   @include flex;
   @include align-center;
-  @include std-box-shadow;
+  @include nav-shadow;
+  background-color: $bg-head-foot-color;
+  height: $navigation-height;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  height: $navigation-height;
   width: 100vw;
-  background-color: $bg-primary-color;
   z-index: 9001;
 }
 
@@ -33,6 +33,7 @@
   @include align-center;
   @include justify-start;
   width: 20%;
+  z-index: 10000;
 }
 
 .navigation-logo {

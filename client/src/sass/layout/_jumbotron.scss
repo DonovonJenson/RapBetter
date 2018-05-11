@@ -46,10 +46,11 @@
   padding: 0 2vw;
   transition: $standard-transition;
   width: 100vw;
+  z-index: 1;
 }
 
 .jumbotron-form-wrapper input:hover {
-  @include std-box-shadow;
+  @include nav-shadow;
   color: rgba(235, 235, 235, 1.0);
 }
 
@@ -100,6 +101,7 @@
 }
 
 .jumbotron-form-results.results-in {
+  @include std-inset-shadow;
   height: $jumbotron-input-height;
   background-color: rgba(35, 35, 35, 0.8);
   overflow-x: scroll;
