@@ -1,8 +1,12 @@
+.DS_Store
+src/.DS_Store
+
 client/public/style.css
 client/public/style.css.map
 client/public/old-style.css
-node_modules/
 client/public/bundle.js
 client/public/bundle.js.map
-.DS_Store
-src/.DS_Store
+
+server/apikeys.js
+
+node_modules/
