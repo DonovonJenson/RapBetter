@@ -22,6 +22,14 @@ app.use(express.static(_public));
 //   })
 // })
 
+app.get('/fetch-videos', (req, res) => {
+
+  console.log('made it to /fetch-videos');
+
+  res.status(200).send('success');
+
+});
+
 app.post('/fetch-quick-rhymes', (req, res) => {
 
   // grab the information about the word from the rhymebrain API
