@@ -14,11 +14,15 @@ export default class Jumbotron extends React.Component {
   keywordSearch() {
     let keyword = document.getElementById('jumbotron-form-input').value;
     let resultsEl = document.getElementsByClassName('jumbotron-form-results')[0];
+    let inputEl = document.getElementsByClassName('jumbotron-form-wrapper')[0].children[1];
+
+    console.log(inputEl);
 
     let toggled = resultsEl.classList.value.includes('results-in');
 
     if (keyword === '') {
       toggled ? resultsEl.classList.toggle('results-in') : null;
+      toggled ? inputEl.classList.toggle('results-in') : null;
       return;
     }
 
@@ -26,11 +30,13 @@ export default class Jumbotron extends React.Component {
       .then(results => {
         if (!results.data.length) {
           toggled ? null : resultsEl.classList.toggle('results-in');
+          toggled ? null : inputEl.classList.toggle('results-in');
           this.setState({
             rhymeResults: [{word: 'no results'}]
           });
         } else {
           toggled ? null : resultsEl.classList.toggle('results-in');
+          toggled ? null : inputEl.classList.toggle('results-in');
           this.setState({
             rhymeResults: results.data
           });

@@ -1,6 +1,6 @@
 .videos-content-wrapper {
   @include flex;
-  margin: $video-content-wrapper-height * 0.05 0;
+  margin:  0 0 $video-content-wrapper-height * 0.05 0;
   min-height: $video-content-wrapper-height;
   width: $video-content-wrapper-width;
 }
@@ -13,7 +13,7 @@
   width: $video-content-wrapper-width * 0.69;
 }
 
-.video-player-current {
+.player-current-video {
   @include flex;
   @include align-center;
   @include justify-center;
@@ -22,18 +22,37 @@
   width: 100%;
 }
 
-.video-player-current span {
+.player-current-video span {
   height: 100%;
   width: 100%;
 }
 
-.video-player-current-description {
+// Current Video Info
+
+.player-current-info-wrapper {
   @include flex;
-  @include align-center;
-  @include justify-center;
+  @include flex-column;
   height: $video-content-wrapper-height * 0.3;
   width: 100%;
 }
+
+.current-info-title {
+  margin: 2vh;
+}
+
+.current-info-description {
+  margin: 2vh;
+}
+
+.description-label {
+  font-weight: bold;
+}
+
+.description-content {
+  margin-top: 1vh;
+}
+
+// Videos List
 
 .videos-list-wrapper {
   @include flex;
@@ -52,4 +71,89 @@
   background: linear-gradient(to bottom, rgba(35, 35, 35, 0.2) 0%, rgba(45, 45, 45, 0.1) 10%, rgba(45, 45, 45, 0.1) 90%, rgba(35, 35, 35, 0.2) 100%);
   min-height: $video-content-wrapper-height * 0.25;
   width: $video-content-wrapper-width * 0.3;
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+
+  .videos-content-wrapper {
+    @include flex-column;
+    min-height: $video-content-wrapper-height-landscape;
+    width: 100vw;
+  }
+
+  .video-player-wrapper {
+    min-height: $video-content-wrapper-height-landscape;
+    width: 100vw;
+  }
+
+  .player-current-video {
+    height: $video-content-wrapper-height-landscape;
+  }
+
+  .player-current-info-wrapper {
+    height: $video-content-wrapper-height-landscape * 0.3;
+  }
+
+  .current-info-title {
+    margin: 2vh 5vh;
+  }
+
+  .current-info-description {
+    margin: 2vh 5vh;
+    overflow: hidden;
+  }
+
+  .videos-list-wrapper {
+    height: $video-content-wrapper-height-landscape;
+    width: 100vw;
+  }
+
+  .videos-list-entry {
+    min-height: $video-content-wrapper-height-landscape * 0.5;
+    width: 100vw;
+  }
+
+}
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+
+  .videos-content-wrapper {
+    @include flex-column;
+    min-height: $video-content-wrapper-height-portrait;
+    width: 100vw;
+  }
+
+  .video-player-wrapper {
+    min-height: $video-content-wrapper-height-portrait / 2;
+    width: 100vw;
+  }
+
+  .player-current-video {
+    background-color: rgba(5, 5, 5, 1.0);
+    height: $video-content-wrapper-height * 0.35;
+    width: 100%;
+  }
+
+  .player-current-video span {
+    background-color: rgba(5, 5, 5, 1.0);
+  }
+
+  .current-info-title {
+    margin: 1vh 2.5vh;
+  }
+
+  .current-info-description {
+    margin: 1vh 2.5vh;
+    overflow: hidden;
+  }
+
+  .videos-list-wrapper {
+    height: $video-content-wrapper-height-portrait;
+    width: 100vw;
+  }
+
+  .videos-list-entry {
+    width: 100vw;
+  }
+
 }

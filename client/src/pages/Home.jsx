@@ -25,18 +25,18 @@ export default class Home extends React.Component {
   
   toggleClassByTarget(collection, target, activeClass) {
     collection.forEach((el, index) => {
-      let toggled = collection[index].classList.value.includes(activeClass); 
+      let toggled = collection[index].classList.contains(activeClass); 
       if (index === target) {
         toggled ? null : el.classList.toggle(activeClass);
-        el.classList.value.includes('down') ? el.classList.toggle('down') : null;
-        el.classList.value.includes('up') ? el.classList.toggle('up') : null;
+        el.classList.contains('down') ? el.classList.toggle('down') : null;
+        el.classList.contains('up') ? el.classList.toggle('up') : null;
       } else {
         if (index < target) {
-          el.classList.value.includes('down') ? null : el.classList.toggle('down');
-          el.classList.value.includes('up') ? el.classList.toggle('up') : null;
+          el.classList.contains('down') ? null : el.classList.toggle('down');
+          el.classList.contains('up') ? el.classList.toggle('up') : null;
         } else {
-          el.classList.value.includes('down') ? el.classList.toggle('down') : null;
-          el.classList.value.includes('up') ? null : el.classList.toggle('up');
+          el.classList.contains('down') ? el.classList.toggle('down') : null;
+          el.classList.contains('up') ? null : el.classList.toggle('up');
         }
         toggled ? el.classList.toggle(activeClass) : null;
       }
@@ -51,6 +51,7 @@ export default class Home extends React.Component {
 
     let gutterHeight = document.getElementsByClassName('navigation-gutter')[0].scrollHeight;
     let jumbotronHeight = document.getElementsByClassName('jumbotron')[0].scrollHeight;
+    
     let pages = Array.prototype.slice.call(document.getElementsByClassName('page'));
     let features = Array.prototype.slice.call(document.getElementsByClassName('product-feature'));
 
