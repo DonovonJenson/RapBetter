@@ -113,6 +113,7 @@
   @include flex;
   @include align-center;
   @include justify-center;
+  cursor: pointer;
   font-size: $jumbotron-input-height / 2 - 1;
   min-height: $jumbotron-input-height;
   margin: 0 2.5vw;

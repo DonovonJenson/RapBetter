@@ -22,14 +22,28 @@ app.use(express.static(_public));
 //   })
 // })
 
-app.get('/fetch-videos', (req, res) => {
+/*
 
+  The /fetch-videos route is intended to work along with the playlistItems API to fetch all of the videos from any one of your playlists on YouTube.
 
-  console.log('made it to /fetch-videos');
+  See the youtube controller for a longer description of what it does
 
-  res.status(200).send('success');
+*/
 
+app.get('/oauth2callback', (req, res) => {
+  console.log('made it to /oauth2callback');
+  console.log('request body data: ', req.body);
 });
+
+// app.get('/fetch-videos', (req, res) => {
+
+//  -- WILL COME BACK TO THIS LATER --
+
+//   console.log('made it to /fetch-videos');
+
+//   res.status(200).send('success');
+
+// });
 
 app.post('/fetch-quick-rhymes', (req, res) => {
 
