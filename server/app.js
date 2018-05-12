@@ -22,36 +22,26 @@ app.use(express.static(_public));
 //   })
 // })
 
-/*
 
-  The /fetch-videos route is intended to work along with the playlistItems API to fetch all of the videos from any one of your playlists on YouTube.
+app.post('/fetch-videos', (req, res) => {
 
-  See the youtube controller for a longer description of what it does
+  let { filter, maxResults } = req.body
 
-*/
+  controllers.youtube.fetchVideosByPlaylist('PLB7E22B02CFF47F35', maxResults)
+    .then(results => {
+      return controllers.youtube.filterVideosByPublishedDate(results.data.items, filter);
+    })
+    .then(filteredVideos => {
+      res.status(200).send(filteredVideos);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(400).send('Something went wrong while fetching videos: ', error);
+    });
 
-app.get('/oauth2callback', (req, res) => {
-  console.log('made it to /oauth2callback');
-  console.log('request body data: ', req.body);
 });
 
-// app.get('/fetch-videos', (req, res) => {
-
-//  -- WILL COME BACK TO THIS LATER --
-
-//   console.log('made it to /fetch-videos');
-
-//   res.status(200).send('success');
-
-// });
-
 app.post('/fetch-quick-rhymes', (req, res) => {
-
-  // grab the information about the word from the rhymebrain API
-  // extract the syllables out of the word information
-  // use the number of syllables for the input word to filter out all matching results from the input word
-  // bubble sort the results by frequency (indicating more likelihood in the result)
-  // send the results back to the client
 
   let keyword = req.body.word.toLowerCase();
 
@@ -74,7 +64,6 @@ app.post('/fetch-quick-rhymes', (req, res) => {
     .catch(err => {
       res.status(400).send(err);
     });
-
 
 });
 

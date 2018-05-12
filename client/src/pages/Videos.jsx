@@ -8,6 +8,10 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.fetchVideos = this.fetchVideos.bind(this);
+    this.state = {
+      filter: 'newest',
+      maxResults: 25
+    };
   }
 
   componentWillMount() {
@@ -15,9 +19,11 @@ export default class Home extends React.Component {
   }
 
   fetchVideos() {
-    axios.get('/fetch-videos')
-      .then(result => {
-        console.log('result: ', result);
+    // this function reaches the route on our server to fetch the videos from your youtube account
+    let { filter, maxResults } = this.state;
+    axios.post('/fetch-videos', {filter, maxResults})
+      .then(results => {
+        console.log('result: ', results);
       })
       .catch(error => {
         console.error('error: ', error);
@@ -62,7 +68,7 @@ export default class Home extends React.Component {
             {videos.map((video, index) => {
               return (
                 <div key={`video-${index}-${video}`} className="videos-list-entry no-select">
-                  <YouTube videoId={video} opts={{height: 'auto', width: '100%'}}/>
+                  Entry
                 </div>
               );
             })}
