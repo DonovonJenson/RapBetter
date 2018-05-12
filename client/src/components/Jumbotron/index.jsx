@@ -29,7 +29,7 @@ export default class Jumbotron extends React.Component {
       return;
     }
 
-    axios.post('/fetch-quick-rhymes', {word: keyword})
+    axios.post('/fetch/quick-rhymes', {word: keyword})
       .then(results => {
         if (!results.data.length) {
           this.setState({
