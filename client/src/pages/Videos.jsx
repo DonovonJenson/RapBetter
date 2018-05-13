@@ -46,8 +46,6 @@ export default class Home extends React.Component {
 
     const { selectedIndex, expanded, videos } = this.state;
 
-    console.log('current video: ', videos[selectedIndex]);
-
     return (
 
       <section id="videos-page" className="page">
