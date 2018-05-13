@@ -1,9 +1,10 @@
 // Background Colors
-$bg-primary-color: rgba(35, 35, 35, 1.0);
+$bg-primary-color: rgba(15, 15, 15, 1.0);
 $bg-secondary-color: rgba(235, 235, 235, 1.0);
 $bg-tertiary-color: rgba(142, 121, 62, 1.0);
 
 $bg-page-primary: rgba(50, 50, 50, 1.0);
+$bg-head-foot-color: rgba(15, 15, 15, 1.0);
 
 // Text Colors
 $text-primary-color: rgba(235, 235, 235, 0.8);
@@ -29,6 +30,8 @@ $product-feature-width: 88vw;
 // Page Variables
 
 $video-content-wrapper-height: (100vh - $navigation-height) - 6;
+$video-content-wrapper-height-landscape: (100vh - $navigation-height-mobile-landscape) - 6;
+$video-content-wrapper-height-portrait: (100vh - $navigation-height-mobile-portrait) - 6;
 $video-content-wrapper-width: 95vw;
 
 

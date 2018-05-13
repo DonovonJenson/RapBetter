@@ -1,58 +1,84 @@
 import React from 'react';
-import YouTube from 'react-youtube';
+import axios from 'axios';
+// import YouTube from 'react-youtube';
 
-const Home = (props) => {
+import VideoPlayer from '../components/VideoPlayer';
+import VideoListEntry from '../components/VideoListEntry';
 
-  return (
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filter: 'newest',
+      maxResults: 25,
+      selectedIndex: 0,
+      videos: []
+    };
+    this.fetchVideos = this.fetchVideos.bind(this);
+    this.setCurrentIndex = this.setCurrentIndex.bind(this);
+  }
 
-    <div id="videos-page" className="page">
+  componentWillMount() {
+    this.fetchVideos();
+  }
 
-      <div className="videos-content-wrapper">
+  fetchVideos() {
+    let { filter, maxResults } = this.state;
+    axios.post('/fetch/videos', {filter, maxResults})
+      .then(results => {
+        this.setState({
+          videos: results.data
+        });
+      })
+      .catch(error => {
+        console.error('error: ', error);
+      });
+  }
 
-        <div className="video-player-wrapper">
+  setCurrentIndex(index) {
+    window.scrollTo(0, 0);
+    this.setState({
+      selectedIndex: index
+    });
+  }
 
-          <div className="video-player-current">
-            <YouTube videoId="ge0KWuwf1gA" opts={{height: '100%', width: '100%'}}/>
-          </div>
+  render() {
 
-          <div className="video-player-current-description">
-            Description
+    const { selectedIndex, expanded, videos } = this.state;
+
+    return (
+
+      <section id="videos-page" className="page">
+
+        <h1 className="page-title no-select">TUTORIALS</h1>
+
+        <div className="videos-content-wrapper">
+
+          <VideoPlayer 
+            video={videos[selectedIndex]}
+          />
+
+          <div className="videos-list-wrapper">
+            {
+              videos.map((video, index) => {
+                return (
+                  <VideoListEntry
+                    key={`video-${index}`}
+                    clickHandler={this.setCurrentIndex}
+                    index={index}
+                    video={videos[index]}
+                  />
+                );
+              })
+            }
           </div>
 
         </div>
 
-        <div className="videos-list-wrapper">
+      </section>
 
-          <div className="videos-list-entry">
-            Entry 1
-          </div>
-          <div className="videos-list-entry">
-            Entry 2
-          </div>
-          <div className="videos-list-entry">
-            Entry 3
-          </div>
-          <div className="videos-list-entry">
-            Entry 4
-          </div>
-          <div className="videos-list-entry">
-            Entry 5
-          </div>
-          <div className="videos-list-entry">
-            Entry 6
-          </div>
-          <div className="videos-list-entry">
-            Entry 7
-          </div>
+    );
 
-        </div>
+  }
 
-      </div>
-
-    </div>
-
-  );
-
-}
-
-export default Home;
+};

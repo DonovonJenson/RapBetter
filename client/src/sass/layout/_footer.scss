@@ -2,9 +2,10 @@
   @include flex;
   @include align-center;
   @include justify-center;
+  background-color: $bg-head-foot-color;
+  color: $bg-tertiary-color;
   height: $navigation-height;
   width: 100vw;
-  color: $bg-tertiary-color;
 }
 
 @media screen and (orientation: landscape) and (max-width: 1200px) {

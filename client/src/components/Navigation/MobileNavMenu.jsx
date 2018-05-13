@@ -7,13 +7,6 @@ const MobileNavMenu = (props) => (
       <ul>
         <li>
           <a 
-            href="/about"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a 
             href="/tool"
           >
             Rap Tool
@@ -31,6 +24,13 @@ const MobileNavMenu = (props) => (
             href="/courses"
           >
             Courses
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/about"
+          >
+            About
           </a>
         </li>
       </ul>

@@ -46,10 +46,11 @@
   padding: 0 2vw;
   transition: $standard-transition;
   width: 100vw;
+  z-index: 1;
 }
 
 .jumbotron-form-wrapper input:hover {
-  @include std-box-shadow;
+  @include nav-shadow;
   color: rgba(235, 235, 235, 1.0);
 }
 
@@ -100,6 +101,7 @@
 }
 
 .jumbotron-form-results.results-in {
+  @include std-inset-shadow;
   height: $jumbotron-input-height;
   background-color: rgba(35, 35, 35, 0.8);
   overflow-x: scroll;
@@ -111,6 +113,7 @@
   @include flex;
   @include align-center;
   @include justify-center;
+  cursor: pointer;
   font-size: $jumbotron-input-height / 2 - 1;
   min-height: $jumbotron-input-height;
   margin: 0 2.5vw;
