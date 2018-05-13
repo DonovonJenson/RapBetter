@@ -3,17 +3,19 @@ import axios from 'axios';
 // import YouTube from 'react-youtube';
 
 import VideoPlayer from '../components/VideoPlayer';
+import VideoListEntry from '../components/VideoListEntry';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.fetchVideos = this.fetchVideos.bind(this);
     this.state = {
-      selectedIndex: 0,
       filter: 'newest',
       maxResults: 25,
+      selectedIndex: 0,
       videos: []
     };
+    this.fetchVideos = this.fetchVideos.bind(this);
+    this.setCurrentIndex = this.setCurrentIndex.bind(this);
   }
 
   componentWillMount() {
@@ -33,9 +35,18 @@ export default class Home extends React.Component {
       });
   }
 
+  setCurrentIndex(index) {
+    window.scrollTo(0, 0);
+    this.setState({
+      selectedIndex: index
+    });
+  }
+
   render() {
 
-    const { videos } = this.state;
+    const { selectedIndex, expanded, videos } = this.state;
+
+    console.log('current video: ', videos[selectedIndex]);
 
     return (
 
@@ -46,19 +57,22 @@ export default class Home extends React.Component {
         <div className="videos-content-wrapper">
 
           <VideoPlayer 
-            video={videos[0]}
+            video={videos[selectedIndex]}
           />
 
           <div className="videos-list-wrapper">
-
-            {videos.map((video, index) => {
-              return (
-                <div key={`video-${index}-${video}`} className="videos-list-entry no-select">
-                  Entry
-                </div>
-              );
-            })}
-
+            {
+              videos.map((video, index) => {
+                return (
+                  <VideoListEntry
+                    key={`video-${index}`}
+                    clickHandler={this.setCurrentIndex}
+                    index={index}
+                    video={videos[index]}
+                  />
+                );
+              })
+            }
           </div>
 
         </div>
@@ -70,26 +84,3 @@ export default class Home extends React.Component {
   }
 
 };
-
-
-// <div className="videos-list-entry">
-//   Entry 1
-// </div>
-// <div className="videos-list-entry">
-//   Entry 2
-// </div>
-// <div className="videos-list-entry">
-//   Entry 3
-// </div>
-// <div className="videos-list-entry">
-//   Entry 4
-// </div>
-// <div className="videos-list-entry">
-//   Entry 5
-// </div>
-// <div className="videos-list-entry">
-//   Entry 6
-// </div>
-// <div className="videos-list-entry">
-//   Entry 7
-// </div>
