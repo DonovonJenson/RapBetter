@@ -9,42 +9,48 @@ export default class Jumbotron extends React.Component {
       rhymeResults: []
     };
     this.keywordSearch = this.keywordSearch.bind(this);
+    this.resultClickHandler = this.resultClickHandler.bind(this);
   }
 
   keywordSearch() {
-    let keyword = document.getElementById('jumbotron-form-input').value;
     let resultsEl = document.getElementsByClassName('jumbotron-form-results')[0];
-    let inputEl = document.getElementsByClassName('jumbotron-form-wrapper')[0].children[1];
-
-    console.log(inputEl);
+    let inputEl = document.getElementById('jumbotron-form-input');
+    let keyword = inputEl.value;
 
     let toggled = resultsEl.classList.value.includes('results-in');
 
+    let toggleElements = () => {
+      resultsEl.classList.toggle('results-in');
+      inputEl.classList.toggle('results-in');
+    };
+
     if (keyword === '') {
-      toggled ? resultsEl.classList.toggle('results-in') : null;
-      toggled ? inputEl.classList.toggle('results-in') : null;
+      toggled ? toggleElements() : null;
       return;
     }
 
-    axios.post('/fetch-quick-rhymes', {word: keyword})
+    axios.post('/fetch/quick-rhymes', {word: keyword})
       .then(results => {
         if (!results.data.length) {
-          toggled ? null : resultsEl.classList.toggle('results-in');
-          toggled ? null : inputEl.classList.toggle('results-in');
           this.setState({
             rhymeResults: [{word: 'no results'}]
           });
         } else {
-          toggled ? null : resultsEl.classList.toggle('results-in');
-          toggled ? null : inputEl.classList.toggle('results-in');
           this.setState({
             rhymeResults: results.data
           });
         }
+        toggled ? null : toggleElements();
       })
       .catch(error => {
         console.error(error);
       });
+  }
+
+  resultClickHandler(word) {
+    let inputEl = document.getElementById('jumbotron-form-input');
+    inputEl.value = word;
+    this.keywordSearch();
   }
 
   render() {
@@ -61,8 +67,7 @@ export default class Jumbotron extends React.Component {
             QUICK RHYME
           </div>
 
-          <input
-            id="jumbotron-form-input"
+          <input id="jumbotron-form-input"
             placeholder="Enter a word to rhyme"
             onChange={ _.debounce(this.keywordSearch, 500) }
           />
@@ -70,7 +75,9 @@ export default class Jumbotron extends React.Component {
             {
               rhymeResults.map((result, index) => {
                 return (
-                  <div key={`rhyme-result-${index}`} className="jumbotron-form-result">{result.word}</div>
+                  <div className="jumbotron-form-result" key={`rhyme-result-${index}`} onClick={() => this.resultClickHandler(result.word)}>
+                    {result.word}
+                  </div>
                 );
               })
             }

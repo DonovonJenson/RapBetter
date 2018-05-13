@@ -7,10 +7,11 @@
 
 .video-player-wrapper {
   @include std-box-shadow;
-  background-color: rgba(35, 35, 35, 0.2);
+  background-color: rgba(35, 35, 35, 0.5);
   margin-right: $video-content-wrapper-width * 0.01;
   min-height: $video-content-wrapper-height;
   width: $video-content-wrapper-width * 0.69;
+  transition: $standard-transition;
 }
 
 .player-current-video {
@@ -32,7 +33,7 @@
 .player-current-info-wrapper {
   @include flex;
   @include flex-column;
-  height: $video-content-wrapper-height * 0.3;
+  min-height: $video-content-wrapper-height * 0.3;
   width: 100%;
 }
 
@@ -42,6 +43,8 @@
 
 .current-info-description {
   margin: 2vh;
+  overflow-x: auto;
+  overflow-wrap: break-word;
 }
 
 .description-label {
@@ -59,17 +62,9 @@
   @include flex-column;
   @include align-center;
   @include std-inset-shadow;
+  background-color: rgba(35, 35, 35, 0.3);
   height: $video-content-wrapper-height;
   overflow-y: scroll;
-  width: $video-content-wrapper-width * 0.3;
-}
-
-.videos-list-entry {
-  @include flex;
-  @include align-center;
-  @include justify-center;
-  background: linear-gradient(to bottom, rgba(35, 35, 35, 0.2) 0%, rgba(45, 45, 45, 0.1) 10%, rgba(45, 45, 45, 0.1) 90%, rgba(35, 35, 35, 0.2) 100%);
-  min-height: $video-content-wrapper-height * 0.25;
   width: $video-content-wrapper-width * 0.3;
 }
 
@@ -82,6 +77,7 @@
   }
 
   .video-player-wrapper {
+    margin-bottom: 5vh;
     min-height: $video-content-wrapper-height-landscape;
     width: 100vw;
   }
@@ -91,7 +87,7 @@
   }
 
   .player-current-info-wrapper {
-    height: $video-content-wrapper-height-landscape * 0.3;
+    min-height: $video-content-wrapper-height-landscape * 0.3;
   }
 
   .current-info-title {
@@ -100,7 +96,6 @@
 
   .current-info-description {
     margin: 2vh 5vh;
-    overflow: hidden;
   }
 
   .videos-list-wrapper {
@@ -108,9 +103,8 @@
     width: 100vw;
   }
 
-  .videos-list-entry {
-    min-height: $video-content-wrapper-height-landscape * 0.5;
-    width: 100vw;
+  .description-content {
+    font-size: 2.5vh;
   }
 
 }
@@ -124,6 +118,7 @@
   }
 
   .video-player-wrapper {
+    margin-bottom: 5vh;
     min-height: $video-content-wrapper-height-portrait / 2;
     width: 100vw;
   }
@@ -144,7 +139,6 @@
 
   .current-info-description {
     margin: 1vh 2.5vh;
-    overflow: hidden;
   }
 
   .videos-list-wrapper {
@@ -152,8 +146,8 @@
     width: 100vw;
   }
 
-  .videos-list-entry {
-    width: 100vw;
+  .description-content {
+    font-size: 0.9vh;
   }
 
 }

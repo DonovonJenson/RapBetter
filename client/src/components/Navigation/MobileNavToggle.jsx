@@ -43,8 +43,6 @@ export default class MobileNavToggle extends React.Component {
 
     const { isMobile } = this.props;
 
-    console.log(offsetPosition);
-
     return (
 
       <div className="mobile-nav-wrapper">
