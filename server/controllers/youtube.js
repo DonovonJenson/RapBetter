@@ -1,6 +1,13 @@
 const axios = require('axios');
 const path = require('path');
-const key = require('../apikeys')['youtubeAPI'].key || process.env.YOUTUBE_API;
+
+let key;
+
+try {
+  key = require('../apikeys')['youtubeAPI'].key;
+} catch(e) {
+  key = process.env.YOUTUBE_API;
+}
 
 module.exports.fetchVideosByPlaylist = (listId, maxResults) => {
 
