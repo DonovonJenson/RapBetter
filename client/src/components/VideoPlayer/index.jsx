@@ -4,6 +4,30 @@ import YouTube from 'react-youtube';
 export default class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      descriptionToggle: false
+    };
+    this.toggleDescriptionContainer = this.toggleDescriptionContainer.bind(this);
+  }
+
+  toggleDescriptionContainer() {
+
+    // Since the description toggle is set to false by default, 
+    // the toggled class will only be applied the same time that the descriptionToggle is true
+
+    let infoWrapper = document.getElementsByClassName('player-current-info-wrapper')[0];
+    let descriptionContent = document.getElementsByClassName('description-content')[0];
+
+    let currentToggle = this.state.descriptionToggle;
+
+    this.setState({
+      descriptionToggle: !currentToggle
+    }, () => {
+      [infoWrapper, descriptionContent].forEach(el => {
+        el.classList.toggle('toggled');
+      });
+    });
+    
   }
 
   render() {
@@ -12,7 +36,8 @@ export default class VideoPlayer extends React.Component {
       return <div className="video-player-wrapper"/>;
     }
 
-    const { video } = this.props;
+    const { descriptionToggle } = this.state;
+    const { isMobile, video } = this.props;
 
     let videoId = video.contentDetails.videoId;
     let { title, description } = video.snippet;
@@ -44,6 +69,11 @@ export default class VideoPlayer extends React.Component {
               }
             </div>
           </div>
+          {
+            isMobile ?
+              <button className="description-collapse-toggle" onClick={this.toggleDescriptionContainer}>{descriptionToggle ? 'Collapse' : 'Expand'}</button> :
+              <div className="description-spacer"/>
+          }
         </div>
 
       </div>
