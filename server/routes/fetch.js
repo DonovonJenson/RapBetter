@@ -37,7 +37,7 @@ router.route('/videos')
         return controllers.youtube.filterVideosByPublishedDate(results.data.items, filter);
       })
       .then(filteredVideos => {
-        res.status(200).send(filteredVideos);
+        res.status(201).send(filteredVideos);
       })
       .catch(error => {
         console.log(error);
