@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const models = require('../db/models');
-const controllers = require('./controllers');
 const routes = require('./routes');
 
 const _public = path.join(__dirname, '../client/public');

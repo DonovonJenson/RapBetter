@@ -142,7 +142,6 @@ export default class Home extends React.Component {
 
           <div className="product-feature">
 
-
             <div className="product-feature-description-wrapper swap">
               <div className="product-feature-title">
                 <h1>Full Courses</h1>
@@ -158,6 +157,7 @@ export default class Home extends React.Component {
                 </a>
               </div>
             </div>
+            
             <div className="product-feature-image-wrapper swap">
               <img className="product-feature-image" src={courseImage}/>
             </div>
