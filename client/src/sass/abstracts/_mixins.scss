@@ -73,8 +73,8 @@
 }
 
 @mixin std-inset-shadow {
-  -webkit-box-shadow: inset 0 0.05vh 0.5vh $standard-shadow, inset 0 0.1vh 2vh $standard-shadow;
-  box-shadow: inset 0 0.05vh 0.5vh $standard-shadow, inset 0 0.1vh 2vh $standard-shadow;
+  -webkit-box-shadow: inset 0 1vh 0.5vh $darker-shadow, inset 0 1vh 2.5vh $darker-shadow;
+  box-shadow: inset 0 1vh 0.5vh $darker-shadow, inset 0 1vh 2.5vh $darker-shadow;
 }
 
 // Menu Bar
