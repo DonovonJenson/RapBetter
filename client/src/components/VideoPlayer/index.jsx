@@ -45,10 +45,10 @@ export default class VideoPlayer extends React.Component {
   }
 
   renderDescription(description) {
-    return description.split('\n').map((item, key) => {
+    return description.split('\n').map((line, key) => {
       let linkRegex = /(http(s?))\:\/\//gi;
-      let linkToggle = linkRegex.test(item);
-      return linkToggle ? this.buildDescriptionLink(item, key) : this.buildDescriptionElement(item, key);
+      let linkToggle = linkRegex.test(line);
+      return linkToggle ? this.buildDescriptionLink(line, key) : this.buildDescriptionElement(line, key);
     })
   }
 
