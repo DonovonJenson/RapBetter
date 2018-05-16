@@ -11,10 +11,6 @@ export default class VideoPlayer extends React.Component {
   }
 
   toggleDescriptionContainer() {
-
-    // Since the description toggle is set to false by default, 
-    // the toggled class will only be applied the same time that the descriptionToggle is true
-
     let infoWrapper = document.getElementsByClassName('player-current-info-wrapper')[0];
     let descriptionContent = document.getElementsByClassName('description-content')[0];
 
@@ -26,8 +22,7 @@ export default class VideoPlayer extends React.Component {
       [infoWrapper, descriptionContent].forEach(el => {
         el.classList.toggle('toggled');
       });
-    });
-    
+    });  
   }
 
   render() {

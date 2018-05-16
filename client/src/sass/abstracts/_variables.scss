@@ -34,6 +34,8 @@ $video-content-wrapper-height-landscape: (100vh - $navigation-height-mobile-land
 $video-content-wrapper-height-portrait: (100vh - $navigation-height-mobile-portrait) - 6;
 $video-content-wrapper-width: 95vw;
 
+$courses-content-wrapper-height: 100vh - $navigation-height;
+$courses-content-wrapper-width: 95vw;
 
 // Transitions
 $standard-time: 0.4s;
