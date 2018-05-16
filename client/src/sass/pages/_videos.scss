@@ -56,6 +56,13 @@
   font-weight: bold;
 }
 
+.description-link {
+  color: $text-secondary-color;
+}
+
+.description-link:hover {
+  color: rgba(182, 161, 122, 1.0);
+}
 
 // Videos List
 
@@ -87,6 +94,9 @@
 .description-spacer {
   height: 2vh;
 }
+
+
+
 
 @media screen and (orientation: landscape) and (max-width: 1200px) {
 
