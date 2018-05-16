@@ -11,6 +11,53 @@ export default class VideoPlayer extends React.Component {
   }
 
   toggleDescriptionContainer() {
+    this.buildDescriptionElement = this.buildDescriptionElement.bind(this);
+    this.buildDescriptionLink = this.buildDescriptionLink.bind(this);
+    this.renderDescription = this.renderDescription.bind(this);
+    this.toggleDescriptionContainer = this.toggleDescriptionContainer.bind(this);
+  }
+
+  buildDescriptionElement(string, key) {
+    return (
+      <span key={key}>
+        {string}
+        <br/>
+      </span>
+    );
+  }
+
+  buildDescriptionLink(string, key) {
+    let sliceIndex = string.indexOf('http');
+    let text = string.slice(0, sliceIndex);
+    let link = string.slice(sliceIndex);
+    let remainder = '';
+
+    let testSplit = link.split(' ');
+
+    if (testSplit.length > 1) {
+      link = testSplit[0];
+      link = link.replace(/,/g, ' ');
+      remainder = testSplit.slice(1).join(' ');
+    }
+
+    return (
+      <span key={key}>
+        {text}<a className="description-link" href={link}>{link}</a>{remainder}
+        <br/>
+      </span>
+    );
+  }
+
+  renderDescription(description) {
+    return description.split('\n').map((line, key) => {
+      let linkRegex = /(http(s?))\:\/\//gi;
+      let linkToggle = linkRegex.test(line);
+      return linkToggle ? this.buildDescriptionLink(line, key) : this.buildDescriptionElement(line, key);
+    })
+  }
+
+  toggleDescriptionContainer() {
+
     let infoWrapper = document.getElementsByClassName('player-current-info-wrapper')[0];
     let descriptionContent = document.getElementsByClassName('description-content')[0];
 
@@ -22,7 +69,8 @@ export default class VideoPlayer extends React.Component {
       [infoWrapper, descriptionContent].forEach(el => {
         el.classList.toggle('toggled');
       });
-    });  
+    });
+
   }
 
   render() {
@@ -52,16 +100,7 @@ export default class VideoPlayer extends React.Component {
 
           <div className="current-info-description">
             <div className="description-content">
-              {
-                description.split('\n').map((item, key) => {
-                  return (
-                    <span key={key}>
-                      {item}
-                      <br/>
-                    </span>
-                  )
-                })
-              }
+              {this.renderDescription(description)}
             </div>
           </div>
           {
