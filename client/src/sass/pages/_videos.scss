@@ -82,7 +82,6 @@
   border: none;
   color: $bg-secondary-color;
   height: 10vh;
-  margin-top: 5vh;
   transition: $standard-transition;
 }
 
@@ -145,8 +144,9 @@
 
   .description-content.toggled {
     background: none;
-    min-height: 10vh;
     max-height: none;
+    min-height: 10vh;
+    margin-bottom: 5vh;
   }
   
 
@@ -206,6 +206,7 @@
 
   .description-content.toggled {
     background: none;
+    margin-bottom: 2vh;
     max-height: none;
     min-height: 10vh;
     overflow: hidden;
@@ -214,7 +215,6 @@
   .description-collapse-toggle {
     font-size: 2vh;
     height: 5vh;
-    margin-top: 2vh;
   }
 
 }

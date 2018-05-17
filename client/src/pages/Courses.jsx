@@ -20,14 +20,86 @@ const Home = (props) => {
         </div>
 
         <div className="courses-wrapper">
+
           <div className="course">
             <img className="course-image" src={firstVerseImage}/>
+            <div className="course-info-wrapper">
+              <h1 className="course-title">Write your first verse</h1>
+              <div className="course-description">
+                A free introductory rap course. Follow this course and write your first verse in under an hour!
+              </div>
+              <div className="course-price-wrapper"> 
+                <div className="course-price">
+                  <h2 className="price-label">
+                    Price
+                  </h2>
+                  <div className="price-value">
+                    FREE!
+                  </div>
+                </div>
+                <div className="course-link-wrapper">
+                  <a>
+                    <button className="course-button">
+                      View Course
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="course">
             <img className="course-image" src={firstSongImage}/>
+            <div className="course-info-wrapper">
+              <h1 className="course-title">Write your first song</h1>
+              <div className="course-description">
+                A quick start course for those wanting to write a song. No fluff, laser-focused on specifically what you need to get through your first song
+              </div>
+              <div className="course-price-wrapper">
+                <div className="course-price">
+                  <h2 className="price-label">
+                    Price
+                  </h2>
+                  <div className="price-value">
+                    $10
+                  </div>
+                </div>
+                <div className="course-link-wrapper">
+                  <a>
+                    <button className="course-button">
+                      View Course
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="course">
             <img className="course-image" src={rapFundImage}/>
+            <div className="course-info-wrapper">
+              <h1 className="course-title">Rap Fundamentals</h1>
+              <div className="course-description">
+                The most comprehensive course, covering everything you need to know to rap in 30 short, easy lessons
+              </div>
+              <div className="course-price-wrapper">
+                <div className="course-price">
+                  <h2 className="price-label">
+                    Price
+                  </h2>
+                  <div className="price-value">
+                    $15
+                  </div>
+                </div>
+                <div className="course-link-wrapper">
+                  <a>
+                    <button className="course-button">
+                      View Course
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
