@@ -34,6 +34,8 @@ $video-content-wrapper-height-landscape: (100vh - $navigation-height-mobile-land
 $video-content-wrapper-height-portrait: (100vh - $navigation-height-mobile-portrait) - 6;
 $video-content-wrapper-width: 95vw;
 
+$courses-content-wrapper-height: 100vh - $navigation-height;
+$courses-content-wrapper-width: 95vw;
 
 // Transitions
 $standard-time: 0.4s;
@@ -48,6 +50,7 @@ $long-transition: $long-time;
 
 // Box Shadows
 $standard-shadow: rgba(5, 5, 10, 0.2);
+$darker-shadow: rgba(5, 5, 10, 0.4);
 
 // Mobile Nav Variables
 $bg-mobile-nav-inactive: rgba(195, 195, 195, 1.0);

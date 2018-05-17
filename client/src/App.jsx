@@ -36,7 +36,7 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/tool" component={Tool} />
-            <Route path="/videos" component={Videos} />
+            <Route path="/videos" render={() => <Videos isMobile={isMobile}/>} />
             <Route path="/about" component={About} />
             <Route path="/courses" component={Courses} />
           </Switch>
@@ -50,7 +50,3 @@ export default class App extends React.Component {
 
   }
 };
-
-// The front end for this one will be page / component based
-// Each route will link to a new page
-  // each page will be composed of components

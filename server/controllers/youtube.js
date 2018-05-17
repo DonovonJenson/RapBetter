@@ -23,13 +23,13 @@ module.exports.fetchVideosByPlaylist = (listId, maxResults) => {
 
 module.exports.filterVideosByPublishedDate = (videos, filter) => {
 
-  let filterFunction;
-
   if (!Array.isArray(videos)) {
-    throw new TypeError(`Type of videos supplied to function filterVideosByPublished should be an ARRAY, but received ${(typeof videos).toUpperCase()}`);
+    throw new TypeError(`Type of videos supplied to function filterVideosByPublishedDate should be an ARRAY, but received ${(typeof videos).toUpperCase()}`);
   }
 
   filter = filter || 'newest';
+  
+  let filterFunction;
 
   switch(filter) {
     case 'oldest':

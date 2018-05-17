@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import YouTube from 'react-youtube';
 
 import VideoPlayer from '../components/VideoPlayer';
 import VideoListEntry from '../components/VideoListEntry';
@@ -45,6 +44,7 @@ export default class Home extends React.Component {
   render() {
 
     const { selectedIndex, expanded, videos } = this.state;
+    const { isMobile } = this.props;
 
     return (
 
@@ -54,7 +54,8 @@ export default class Home extends React.Component {
 
         <div className="videos-content-wrapper">
 
-          <VideoPlayer 
+          <VideoPlayer
+            isMobile={isMobile}
             video={videos[selectedIndex]}
           />
 
