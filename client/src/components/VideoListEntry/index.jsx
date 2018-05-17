@@ -6,13 +6,14 @@ const VideoListEntry = (props) => {
     return (<div index={index} className="videos-list-entry no-select" />);
   }
 
-  const { clickHandler, index, video } = props;
+  const { clickHandler, index, selectedIndex, video } = props;
 
   let date = new Date(video.snippet.publishedAt).toDateString();
+  let selected = selectedIndex === index ? 'current' : '';
 
   return (
 
-    <div index={index} className="videos-list-entry no-select" 
+    <div index={index} className={`videos-list-entry ${selected} no-select`} 
       onClick={() => clickHandler(index)}
     >
       <img src={video.snippet.thumbnails.standard.url} className="videos-list-entry-image"/>
