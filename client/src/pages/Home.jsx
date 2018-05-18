@@ -88,7 +88,7 @@ export default class Home extends React.Component {
 
             <div className="product-feature-description-wrapper swap">
               <div className="product-feature-title">
-                <h1>Rap Tool</h1>
+                <h1>RAP TOOL</h1>
               </div>
               <div className="product-feature-description">
                 <p>
@@ -120,7 +120,7 @@ export default class Home extends React.Component {
 
             <div className="product-feature-description-wrapper">
               <div className="product-feature-title">
-                <h1>Tutorial Videos</h1>
+                <h1>TUTORIAL VIDEOS</h1>
               </div>
               <div className="product-feature-description">
                 <p>
@@ -144,7 +144,7 @@ export default class Home extends React.Component {
 
             <div className="product-feature-description-wrapper swap">
               <div className="product-feature-title">
-                <h1>Full Courses</h1>
+                <h1>FULL COURSES</h1>
               </div>
               <div className="product-feature-description">
                 <p>

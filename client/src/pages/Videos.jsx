@@ -67,6 +67,7 @@ export default class Home extends React.Component {
                     key={`video-${index}`}
                     clickHandler={this.setCurrentIndex}
                     index={index}
+                    selectedIndex={selectedIndex}
                     video={videos[index]}
                   />
                 );

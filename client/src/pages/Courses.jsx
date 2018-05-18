@@ -11,12 +11,10 @@ const Home = (props) => {
 
     <section id="courses-page" className="page">
 
-      <h1 className="page-title no-select">COURSES</h1>
-
       <div className="courses-content-wrapper">
 
         <div className="courses-header-wrapper">
-          Header Block
+          <span>LEARN MORE WITH ONLINE RAP CLASSES</span>
         </div>
 
         <div className="courses-wrapper">
@@ -24,7 +22,7 @@ const Home = (props) => {
           <div className="course">
             <img className="course-image" src={firstVerseImage}/>
             <div className="course-info-wrapper">
-              <h1 className="course-title">Write your first verse</h1>
+              <h1 className="course-title">Write Your First Verse</h1>
               <div className="course-description">
                 A free introductory rap course. Follow this course and write your first verse in under an hour!
               </div>
@@ -38,7 +36,7 @@ const Home = (props) => {
                   </div>
                 </div>
                 <div className="course-link-wrapper">
-                  <a>
+                  <a href="https://www.udemy.com/write-your-first-rap-verse" target="_blank">
                     <button className="course-button">
                       View Course
                     </button>
@@ -51,9 +49,9 @@ const Home = (props) => {
           <div className="course">
             <img className="course-image" src={firstSongImage}/>
             <div className="course-info-wrapper">
-              <h1 className="course-title">Write your first song</h1>
+              <h1 className="course-title">Write Your First Song</h1>
               <div className="course-description">
-                A quick start course for those wanting to write a song. No fluff, laser-focused on specifically what you need to get through your first song
+                A quick start course for those wanting to write a song. No fluff, laser-focused on what you need to get through your first song
               </div>
               <div className="course-price-wrapper">
                 <div className="course-price">
@@ -65,7 +63,7 @@ const Home = (props) => {
                   </div>
                 </div>
                 <div className="course-link-wrapper">
-                  <a>
+                  <a href="https://www.udemy.com/writing-your-first-rap-song/?couponCode=STUDENTDISCOUNT" target="_blank">
                     <button className="course-button">
                       View Course
                     </button>
@@ -92,7 +90,7 @@ const Home = (props) => {
                   </div>
                 </div>
                 <div className="course-link-wrapper">
-                  <a>
+                  <a href="https://www.udemy.com/rap-fundamentals/?couponCode=Youtubers" target="_blank">
                     <button className="course-button">
                       View Course
                     </button>
