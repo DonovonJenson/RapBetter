@@ -12,7 +12,7 @@ $text-secondary-color: rgba(142, 121, 62, 1.0);
 $text-tertiary-color: rgba(35, 35, 35, 0.5);
 
 
-// Component Heights
+// Component Variables
 $navigation-height: 5.5vh;
 $navigation-height-mobile-portrait: 7.5vh;
 $navigation-height-mobile-landscape: 12vh;
@@ -28,7 +28,6 @@ $product-feature-width: 88vw;
 
 
 // Page Variables
-
 $video-content-wrapper-height: (100vh - $navigation-height) - 6;
 $video-content-wrapper-height-landscape: (100vh - $navigation-height-mobile-landscape) - 6;
 $video-content-wrapper-height-portrait: (100vh - $navigation-height-mobile-portrait) - 6;
@@ -36,6 +35,10 @@ $video-content-wrapper-width: 95vw;
 
 $courses-content-wrapper-height: 100vh - $navigation-height;
 $courses-content-wrapper-width: 95vw;
+
+$about-content-wrapper-height: 100vh - $navigation-height;
+$about-content-wrapper-width: 95vw;
+
 
 // Transitions
 $standard-time: 0.4s;
