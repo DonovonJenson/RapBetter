@@ -165,7 +165,7 @@
   }
 
   .course-description {
-    font-size: 3vh;
+    font-size: 2.2vh;
   }
 
   .course-price-wrapper, .course:hover .course-price-wrapper {
@@ -178,6 +178,7 @@
 
   .price-label {
     margin: 2.5vh 0;
+    font-size: 5vh;
   }
 
   .price-value {
@@ -231,7 +232,12 @@
   }
 
   .course-description {
-    font-size: 1.3vh;
+    font-size: 2vh;
+  }
+
+  .price-label {
+    margin: 2.5vh 0;
+    font-size: 3vh;
   }
 
   .course-price-wrapper {

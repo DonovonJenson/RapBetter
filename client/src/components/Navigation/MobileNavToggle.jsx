@@ -18,22 +18,24 @@ export default class MobileNavToggle extends React.Component {
     let mobileNavMenu = document.getElementsByClassName('mobile-nav-menu')[0];
 
     // save the current Y offset of the page
-
     let currentOffset = window.pageYOffset;
 
     html.classList.toggle('no-scroll'); // Prevents background content from being moved while menu is active, locks the window y pos to 0
 
+    // if we have an offsetPosition stored in the state
     if (this.state.offsetPosition !== null) {
+      // set the y offset to the offsetPosition in state
       window.scrollTo(0, this.state.offsetPosition);
+      // clear the offsetPosition from the state
       this.setState({offsetPosition: null});
     } else {
-      window.scrollTo(0, currentOffset);
+      // set the offsetPosition to the currentOffset
       this.setState({offsetPosition: currentOffset});
     }
-
-    mobileNavToggle.classList.toggle('is-active'); // 
-    mobileNavFade.classList.toggle('is-active'); // 
-    mobileNavMenu.classList.toggle('is-active'); // Toggle the menu on/off
+    // toggle all active classes
+    mobileNavToggle.classList.toggle('is-active');
+    mobileNavFade.classList.toggle('is-active'); 
+    mobileNavMenu.classList.toggle('is-active');
     
   }
 
