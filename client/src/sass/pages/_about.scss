@@ -1,0 +1,49 @@
+.about-content-wrapper {
+  @include flex;
+  @include align-center;
+  min-height: $about-content-wrapper-height;
+  width: $about-content-wrapper-width;
+}
+
+.about-image {
+  background: url(./../../public/images/donovonjenson.jpg) no-repeat;
+  background-position: 50% 50%;
+  background-size: 100% auto;
+  -webkit-filter: saturate(0%);
+  filter: saturate(0%);
+  min-height: $about-content-wrapper-height;
+  width: $about-content-wrapper-width * 0.4;
+}
+
+.about-text-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  @include justify-center;
+  min-height: $about-content-wrapper-height;
+  padding: 0 $about-content-wrapper-width * 0.02;
+  width: $about-content-wrapper-width * 0.6;
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+
+}
+
+
+@media screen and (orientation: portrait) and (max-width: 1200px) {
+
+  .about-content-wrapper {
+    @include flex-column;
+  }
+
+  .about-image {
+    background-size: auto 100%;
+    min-height: $about-content-wrapper-height * 0.5;
+    width: $about-content-wrapper-width;
+  }
+
+  .about-text-wrapper {
+    width: $about-content-wrapper-width;
+  }
+
+}
