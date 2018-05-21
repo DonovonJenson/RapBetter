@@ -10,6 +10,15 @@ export default class Jumbotron extends React.Component {
     };
     this.keywordSearch = this.keywordSearch.bind(this);
     this.resultClickHandler = this.resultClickHandler.bind(this);
+    this.scrollListener = this.scrollListener.bind(this);
+  }
+
+  componentWillMount() {
+    window.addEventListener('scroll', this.scrollListener);
+  }
+
+  componentDidMount() {
+    setTimeout(this.scrollListener, 1000)
   }
 
   keywordSearch() {
@@ -64,6 +73,32 @@ export default class Jumbotron extends React.Component {
     this.keywordSearch();
   }
 
+  scrollListener() {
+    // get the height of the jumbotron element
+    let jumbotronHeight = document.getElementsByClassName('jumbotron')[0].scrollHeight;
+    // get the current y offset of the user on the document
+    let offsetHeight = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    // get the banner wrapper element
+    let bannerWrapper = document.getElementsByClassName('jumbotron-banner-wrapper')[0];
+    // check if the classList of the banner contains the scrolled class
+    let toggled = bannerWrapper.classList.contains('scrolled');
+
+    // if the offsetHeight is past 1/2 the jumbotron, 
+      // if the scrolled class isn't toggled, toggle it on, else, do nothing
+    // else 
+      // if the scrolled class is toggled, toggle it off, else, do nothing
+    if (offsetHeight > (jumbotronHeight / 3)) {
+      !toggled ? bannerWrapper.classList.toggle('scrolled') : null;
+    } else {
+      toggled ? bannerWrapper.classList.toggle('scrolled') : null;
+    }
+
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollListener);
+  }
+
   render() {
 
     const { rhymeResults } = this.state;
@@ -71,6 +106,10 @@ export default class Jumbotron extends React.Component {
     return (
 
       <div className="jumbotron">
+
+        <div className="jumbotron-banner-wrapper scrolled">
+          <span className="jumbotron-banner-text">HERE IS RISEN LYRACISM</span>
+        </div>
 
         <div className="jumbotron-form-wrapper">
 
