@@ -8,8 +8,44 @@
   background-attachment: fixed;
   color: $text-primary-color;
   height: 100vh - $navigation-height;
+  overflow-x: hidden;
   width: 100vw;
 }
+
+
+
+.jumbotron-banner-wrapper {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background: linear-gradient(to right, rgba(3, 3, 3, 1.0) 0%, rgba(53, 53, 53, 0.1) 100%, transparent);
+  left: 0vw;
+  min-height: (100vh + $navigation-height) / 4;
+  position: relative;
+  top: (-100vh + $navigation-height) / 4;
+  transition: $long-transition;
+  width: 100vw;
+
+  .jumbotron-banner-text {
+    font-size: 5vh;
+    transition: 1s;
+    transition-delay: 0.8s;
+  }
+}
+
+.jumbotron-banner-wrapper.scrolled {
+  background: linear-gradient(to right, rgba(3, 3, 3, 1.0) 0%, rgba(53, 53, 53, 0.0) 60%, transparent);
+  left: -200vw;
+  transition: $long-transition;
+
+  .jumbotron-banner-text {
+    transition: $long-transition;
+    color: rgba(0, 0, 0, 0.0);
+  }
+}
+
+
+
 
 .jumbotron-form-wrapper {
   @include flex;
@@ -172,6 +208,20 @@
     background-size: auto 100%;
     background-position: 65% 50%;
     background-attachment: scroll;
+  }
+
+  .jumbotron-banner-wrapper {
+    top: (-100vh + $navigation-height) / 5;
+    
+    .jumbotron-banner-text {
+      font-size: 3vh;
+    }
+  }
+
+  .jumbotron-banner-wrapper.scrolled {
+
+    .jumbotron-banner-text {
+    }
   }
 
   .jumbotron-form-wrapper input {
