@@ -83,7 +83,7 @@ export default class Home extends React.Component {
           />
 
           <div className="videos-list-wrapper">
-            {this.renderVideoList(videos)}
+            {this.renderVideoList()}
           </div>
 
         </div>
