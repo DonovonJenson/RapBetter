@@ -12,7 +12,6 @@ module.exports.fetchRhymes = (word) => {
 
 module.exports.filterRhymesBySyllables = (input, targetSyllables) => {
 
-
   // declare universal filtering function
   let filterBySyllables = (list) => {
     let filtered = [];

@@ -14,6 +14,7 @@ export default class Home extends React.Component {
       videos: []
     };
     this.fetchVideos = this.fetchVideos.bind(this);
+    this.renderVideoList = this.renderVideoList.bind(this);
     this.setCurrentIndex = this.setCurrentIndex.bind(this);
   }
 
@@ -32,6 +33,28 @@ export default class Home extends React.Component {
       .catch(error => {
         console.error('error: ', error);
       });
+  }
+
+  renderVideoList() {
+
+    const { selectedIndex, videos } = this.state;
+
+    if (videos.length === 0) {
+      return <div className="videos-list-wrapper centered"><div className="video-player-loader"/></div>
+    } else {
+
+      return videos.map((video, index) => {
+        return (
+          <VideoListEntry
+            key={`video-${index}`}
+            clickHandler={this.setCurrentIndex}
+            index={index}
+            selectedIndex={selectedIndex}
+            video={videos[index]}
+          />
+        );
+      })
+    }
   }
 
   setCurrentIndex(index) {
@@ -60,19 +83,7 @@ export default class Home extends React.Component {
           />
 
           <div className="videos-list-wrapper">
-            {
-              videos.map((video, index) => {
-                return (
-                  <VideoListEntry
-                    key={`video-${index}`}
-                    clickHandler={this.setCurrentIndex}
-                    index={index}
-                    selectedIndex={selectedIndex}
-                    video={videos[index]}
-                  />
-                );
-              })
-            }
+            {this.renderVideoList()}
           </div>
 
         </div>
