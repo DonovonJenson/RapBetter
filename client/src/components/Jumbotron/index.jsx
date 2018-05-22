@@ -18,7 +18,7 @@ export default class Jumbotron extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.scrollListener, 1000)
+    setTimeout(this.scrollListener, 1000);
   }
 
   keywordSearch() {
