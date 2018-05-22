@@ -46,8 +46,6 @@ export default class VideoPlayer extends React.Component {
 
     // splits the string by every space
     let testSplit = link.split(' ');
-
-
     /*
 
       If the testSplit's length is greater than 1, 
@@ -111,7 +109,7 @@ export default class VideoPlayer extends React.Component {
   render() {
 
     if (!this.props.video) {
-      return <div className="video-player-wrapper"/>;
+      return <div className="video-player-wrapper"><div className="video-player-loader"/></div>;
     }
 
     const { descriptionToggle } = this.state;
