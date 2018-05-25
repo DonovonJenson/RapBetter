@@ -7,6 +7,8 @@ client/public/old-style.css
 client/public/bundle.js
 client/public/bundle.js.map
 
+db/data
+
 server/apikeys.js
 
 node_modules/

@@ -42,7 +42,6 @@ export default class Home extends React.Component {
     if (videos.length === 0) {
       return <div className="videos-list-wrapper centered"><div className="video-player-loader"/></div>
     } else {
-
       return videos.map((video, index) => {
         return (
           <VideoListEntry
@@ -53,7 +52,7 @@ export default class Home extends React.Component {
             video={videos[index]}
           />
         );
-      })
+      });
     }
   }
 
