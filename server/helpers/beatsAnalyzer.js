@@ -1,241 +1,139 @@
-/*
-This may take several seconds to load depending on bandwidth. 
-Once completed it will provide two global arrays: originalBuffer and lowPassBuffer.
-*/
+handleFileInput() {
+    var file = document.getElementById('file-upload').files[0];
+    var reader = new FileReader();
+    var context = new(window.AudioContext || window.webkitAudioContext)();
+    reader.onload = function() {
+      context.decodeAudioData(reader.result, function(buffer) {
+        prepare(buffer);
+      });
+    };
+    reader.readAsArrayBuffer(file);
 
-function createBuffers(url) {
-
-    // THE URL STRING IS THE ADDRESS OF A MP3 FILE, WE HAVE TO HANDLE LOCAL UPLOADING
-
-    // Fetch Audio Track via AJAX with URL
-    request = new XMLHttpRequest();
-   
-    request.open('GET', url, true);
-    request.responseType = 'arraybuffer';
-
-
-    // CALL BACK FOR A SUCCESSFUL REQUEST -- INPUT IS AN ARRAY BUFFER
-
-    request.onload = function(ajaxResponseBuffer) {
-
-        // Create and Save Original Buffer Audio Context in 'originalBuffer'
-        var audioCtx = new AudioContext();
-        var songLength = ajaxResponseBuffer.total;
-
-        // Arguments: Channels, Length, Sample Rate
-        var offlineCtx = new OfflineAudioContext(1, songLength, 44100); //
-        source = offlineCtx.createBufferSource();
-
-
-        var audioData = request.response;
-        audioCtx.decodeAudioData(audioData, function(buffer) {
-
-                // create an original buffer reference to the get channel data
-                window.originalBuffer = buffer.getChannelData(0);
-                var source = offlineCtx.createBufferSource();
-                source.buffer = buffer;
-
-                // Create a Low Pass Filter to Isolate Low End Beat
-                var filter = offlineCtx.createBiquadFilter();
-                filter.type = "lowpass";
-                filter.frequency.value = 140;
-                source.connect(filter);
-                filter.connect(offlineCtx.destination);
-                
-                // Schedule start at time 0
-                source.start(0);
-
-                // Render this low pass filter data to new Audio Context and Save in 'lowPassBuffer'
-                offlineCtx.startRendering().then(function(lowPassAudioBuffer){
-
-                    var audioCtx = new(window.AudioContext || window.webkitAudioContext)(); 
-                    var song = audioCtx.createBufferSource(); 
-                    song.buffer = lowPassAudioBuffer;
-                    song.connect(audioCtx.destination);
-                    
-                    // Save lowPassBuffer in Global Array
-                    window.lowPassBuffer = song.buffer.getChannelData(0);
-
-                    play.onclick = function() {
-                        song.start();
-                    }
-
-                    console.log("Low Pass Buffer Rendered!");
-                });
-
-            },
-            function(e) {});
-    }
-    request.send();
-}
-
-
-createBuffers('https://askmacgyver.com/test/Maroon5-Moves-Like-Jagger-128bpm.mp3');
-
-
-
-function getClip(length, startTime, data) {
-
-    var clip_length = length * 44100;
-    var section = startTime * 44100;
-    var newArr = [];
-
-    for (var i = 0; i < clip_length; i++) {
-        newArr.push(data[section + i]);
+    function prepare(buffer) {
+      var offlineContext = new OfflineAudioContext(1, buffer.length, buffer.sampleRate);
+      var source = offlineContext.createBufferSource();
+      source.buffer = buffer;
+      var filter = offlineContext.createBiquadFilter();
+      filter.type = "lowpass";
+      filter.frequency.value = 140;
+      source.connect(filter);
+      filter.connect(offlineContext.destination);
+      source.start(0);
+      offlineContext.startRendering();
+      offlineContext.oncomplete = function(e) {
+        process(e);
+      };
     }
 
-    return newArr;
-}
+    function process(e) {
+      var filteredBuffer = e.renderedBuffer;
+      //If you want to analyze both channels, use the other channel later
+      var data = filteredBuffer.getChannelData(0);
+      var max = arrayMax(data);
+      var min = arrayMin(data);
+      var threshold = min + (max - min) * 0.98;
+      var peaks = getPeaksAtThreshold(data, threshold);
+      var intervalCounts = countIntervalsBetweenNearbyPeaks(peaks);
+      var tempoCounts = groupNeighborsByTempo(intervalCounts);
+      tempoCounts.sort(function(a, b) {
+        return b.count - a.count;
+      });
+      if (tempoCounts.length) {
 
-// Overwrite our array buffer to a 10 second clip starting from 00:10 seconds into the song.
+        let totalCounts = 0;
+        let totalBeats = 0;
+        tempoCounts.forEach(range => {
+          totalCounts += range.count;
+          totalBeats += range.tempo * range.count;
+        });
+        let estimatedTempo = totalBeats / totalCounts;
 
-window.lowPassFilter = getClip(10, 10, lowPassFilter);
+        console.log('estimated tempo', Math.ceil(estimatedTempo));
 
+      }
+    }
 
-
-
-
-
-function getSampleClip(data, samples) {
-
-    var newArray = [];
-    var modulus_coefficient = Math.round(data.length / samples);
-
-    for (var i = 0; i < data.length; i++) {
-        if (i % modulus_coefficient == 0) {
-            newArray.push(data[i]);
+    // http://tech.beatport.com/2014/web-audio/beat-detection-using-web-audio/
+    function getPeaksAtThreshold(data, threshold) {
+      var peaksArray = [];
+      var length = data.length;
+      for (var i = 0; i < length;) {
+        if (data[i] > threshold) {
+          peaksArray.push(i);
+          // Skip forward ~ 1/4s to get past this peak.
+          i += 10000;
         }
-    }
-    return newArray;
-}
-
-// Overwrite our array to down-sampled array.
-
-lowPassBuffer = getSampleClip(lowPassFilter, 300);
-
-
-
-
-
-
-
-function normalizeArray(data) {
-
-    var newArray = [];
-
-    for (var i = 0; i < data.length; i++) {
-        newArray.push(Math.abs(Math.round((data[i + 1] - data[i]) * 1000)));
+        i++;
+      }
+      return peaksArray;
     }
 
-    return newArray;
-}
-
-// Overwrite our array to the normalized array
-lowPassBuffer = normalizeArray(lowPassBuffer);
-
-
-
-
-
-
-
-
-
-
-
-
-
-function countFlatLineGroupings(data) {
-
-    var groupings = 0;
-    var newArray = normalizeArray(data);
-
-    function getMax(a) {
-        var m = -Infinity,
-            i = 0,
-            n = a.length;
-
-        for (; i != n; ++i) {
-            if (a[i] > m) {
-                m = a[i];
-            }
+    function countIntervalsBetweenNearbyPeaks(peaks) {
+      var intervalCounts = [];
+      peaks.forEach(function(peak, index) {
+        for (var i = 0; i < 10; i++) {
+          var interval = peaks[index + i] - peak;
+          var foundInterval = intervalCounts.some(function(intervalCount) {
+            if (intervalCount.interval === interval) return intervalCount.count++;
+          });
+          //Additional checks to avoid infinite loops in later processing
+          if (!isNaN(interval) && interval !== 0 && !foundInterval) {
+            intervalCounts.push({
+              interval: interval,
+              count: 1
+            });
+          }
         }
-        return m;
+      });
+      return intervalCounts;
     }
 
-    function getMin(a) {
-        var m = Infinity,
-            i = 0,
-            n = a.length;
-
-        for (; i != n; ++i) {
-            if (a[i] < m) {
-                m = a[i];
-            }
+    function groupNeighborsByTempo(intervalCounts) {
+      var tempoCounts = [];
+      intervalCounts.forEach(function(intervalCount) {
+        //Convert an interval to tempo
+        var theoreticalTempo = 60 / (intervalCount.interval / 44100);
+        theoreticalTempo = Math.round(theoreticalTempo);
+        if (theoreticalTempo === 0) {
+          return;
         }
-        return m;
-    }
+        // Adjust the tempo to fit within the 90-180 BPM range
+        while (theoreticalTempo < 90) theoreticalTempo *= 2;
+        while (theoreticalTempo > 180) theoreticalTempo /= 2;
 
-    var max = getMax(newArray);
-    var min = getMin(newArray);
-    var count = 0;
-    var threshold = Math.round((max - min) * 0.2);
-
-    for (var i = 0; i < newArray.length; i++) {
-
-       if (newArray[i] > threshold && newArray[i + 1] < threshold && newArray[i + 2] < threshold && newArray[i + 3] < threshold && newArray[i + 6] < threshold) {
-            count++;
+        var foundTempo = tempoCounts.some(function(tempoCount) {
+          if (tempoCount.tempo === theoreticalTempo) return tempoCount.count += intervalCount.count;
+        });
+        if (!foundTempo) {
+          tempoCounts.push({
+            tempo: theoreticalTempo,
+            count: intervalCount.count
+          });
         }
+      });
+      return tempoCounts;
     }
 
-    return count;
-}
+    // http://stackoverflow.com/questions/1669190/javascript-min-max-array-values
+    function arrayMin(arr) {
+      var len = arr.length,
+        min = Infinity;
+      while (len--) {
+        if (arr[len] < min) {
+          min = arr[len];
+        }
+      }
+      return min;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var final_tempo = countFlatLineGroupings(lowPassBuffer);
-
-// final_tempo will be 21
-
-final_tempo = final_tempo * 6;
-
-console.log("Tempo: " + final_tempo);
-
-// final_tempo will be 126
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    function arrayMax(arr) {
+      var len = arr.length,
+        max = -Infinity;
+      while (len--) {
+        if (arr[len] > max) {
+          max = arr[len];
+        }
+      }
+      return max;
+    }
+  }
