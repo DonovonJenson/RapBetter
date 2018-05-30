@@ -8,7 +8,7 @@
   width: 100vw;
 }
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .footer {
     height: $navigation-height-mobile-landscape;
@@ -16,7 +16,7 @@
 
 }
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .footer {
     height: $navigation-height-mobile-portrait;

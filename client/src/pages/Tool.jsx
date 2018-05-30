@@ -9,14 +9,22 @@ export default class Tool extends React.Component {
 
     return (
 
-      <div id="tool-page" className="page">
+      <section id="tool-page" className="page">
 
-        Tool Page
+        <div className="tool-word-input-wrapper">
+        </div>
 
-      </div>
+        <div className="tool-rapset-wrapper">
+        </div>
+
+        <div className="tool-controls-wrapper">
+        </div>
+
+      </section>
 
     );
 
   }
 
-};
+}
+

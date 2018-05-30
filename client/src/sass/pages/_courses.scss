@@ -23,7 +23,7 @@
 }
 
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .courses-wrapper {
     @include flex-column;
@@ -38,7 +38,7 @@
 }
 
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .courses-wrapper {
     @include flex-column;

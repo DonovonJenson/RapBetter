@@ -102,7 +102,7 @@
 
 
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .mobile-nav-wrapper, .mobile-nav-toggle {
     height: $navigation-height-mobile-landscape / 2;
@@ -149,7 +149,7 @@
 
 
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .mobile-nav-wrapper, .mobile-nav-toggle {
     height: $navigation-height-mobile-portrait / 2;
