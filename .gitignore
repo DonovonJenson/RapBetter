@@ -1,14 +1,21 @@
 .DS_Store
 src/.DS_Store
 
+# Runtime Data
+*.rdb
+
+# Bundled files
 client/public/style.css
 client/public/style.css.map
 client/public/old-style.css
 client/public/bundle.js
 client/public/bundle.js.map
 
+# Database data
 db/data
 
+# Private API Keys
 server/apikeys.js
 
+# Modules files
 node_modules/
