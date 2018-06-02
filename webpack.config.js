@@ -35,7 +35,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: '25000'
-       }
+        }
       }
     ]
   },
@@ -43,7 +43,7 @@ module.exports = {
     new ExtractTextPlugin({filename: 'style.css'})
   ],
   resolve: {
-    extensions: [".webpack.js", ".web.js", ".js", ".json", ".jsx"],
+    extensions: ['.webpack.js', '.web.js', '.js', '.json', '.jsx'],
     modules: [_modules]
   }
 };

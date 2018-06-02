@@ -1,13 +1,26 @@
 import React from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
 export default class Tool extends React.Component {
   constructor(props) {
     super(props);
+    this.keywordSearch = this.keywordSearch.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('/tool/get-rhymes')
+  keywordSearch() {
+    let inputEl = document.getElementById('tool-word-input');
+    let keyword = inputEl.value;
+
+    if (keyword === '') {
+      return;
+    }
+
+    axios.get('/tool/fetch-rhymes', {
+      params: {
+        word: keyword
+      }
+    })
       .then(results => {
         console.log('results from query: ', results);
       })
@@ -23,7 +36,7 @@ export default class Tool extends React.Component {
       <section id="tool-page" className="page">
 
         <div className="tool-word-input-wrapper">
-          Input
+          <input id="tool-word-input" onChange={_.debounce(this.keywordSearch, 500)}/>
         </div>
 
         <div className="tool-rapset-wrapper">

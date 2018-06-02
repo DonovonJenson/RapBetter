@@ -40,7 +40,7 @@ export default class Home extends React.Component {
     const { selectedIndex, videos } = this.state;
 
     if (videos.length === 0) {
-      return <div className="videos-list-wrapper centered"><div className="video-player-loader"/></div>
+      return <div className="videos-list-wrapper centered"><div className="video-player-loader"/></div>;
     } else {
       return videos.map((video, index) => {
         return (
@@ -93,4 +93,4 @@ export default class Home extends React.Component {
 
   }
 
-};
+}

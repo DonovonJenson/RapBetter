@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.route('/get-rhymes')
-  .get(/* middelware here */ (req, res) => {
-    res.status(200).send('successful query');
-  });
+const controllers = require('../controllers');
+const middleware = require('../middleware');
+
+router.route('/fetch-rhymes')
+  .get(middleware.cache.checkCacheForValue, controllers.tool.fetchRhymes);
 
 module.exports = router;
