@@ -1,17 +1,56 @@
 import React from 'react';
+import axios from 'axios';
+import _ from 'lodash';
 
-const Home = (props) => {
+export default class Tool extends React.Component {
+  constructor(props) {
+    super(props);
+    this.keywordSearch = this.keywordSearch.bind(this);
+  }
 
-  return (
+  keywordSearch() {
+    let inputEl = document.getElementById('tool-word-input');
+    let keyword = inputEl.value;
 
-    <div id="tool-page" className="page">
+    if (keyword === '') {
+      return;
+    }
 
-      TOOL PAGE
+    axios.get('/tool/fetch-rhymes', {
+      params: {
+        word: keyword
+      }
+    })
+      .then(results => {
+        console.log('results from query: ', results);
+      })
+      .catch(error => {
+        console.log('An error has occurred: ', error);
+      });
+  }
 
-    </div>
+  render() {
 
-  );
+    return (
+
+      <section id="tool-page" className="page">
+
+        <div className="tool-word-input-wrapper">
+          <input id="tool-word-input" onChange={_.debounce(this.keywordSearch, 500)}/>
+        </div>
+
+        <div className="tool-rapset-wrapper">
+          Rap Set
+        </div>
+
+        <div className="tool-controls-wrapper">
+          Controls
+        </div>
+
+      </section>
+
+    );
+
+  }
 
 }
-
-export default Home;

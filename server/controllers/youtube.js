@@ -1,6 +1,8 @@
 const axios = require('axios');
 const path = require('path');
 
+const filePath = path.join(__dirname, '../../youtube.js');
+
 let key;
 
 try {
@@ -12,7 +14,7 @@ try {
 module.exports.fetchVideosByPlaylist = (listId, maxResults) => {
 
   if (listId === '') {
-    throw new Error('List ID supplied to function fetchVideosByPlaylist cannot be an empty string', path.join(__dirname, '../../youtube.js'), 5);
+    throw new Error('List ID supplied to function fetchVideosByPlaylist cannot be an empty string', filePath, 14);
   }
 
   maxResults = maxResults || 25;
@@ -21,22 +23,24 @@ module.exports.fetchVideosByPlaylist = (listId, maxResults) => {
 
 };
 
-module.exports.filterVideosByPublishedDate = (videos, filter) => {
+module.exports.filterVideosByPublishedDate = (videos, filter = 'newest') => {
+
+  if (videos === undefined) {
+    throw new ReferenceError(`filterVideosByPublishedDate requires a 'videos' argument as an array, but wasn't supplied anything`, filePath, 26);
+  }
 
   if (!Array.isArray(videos)) {
     throw new TypeError(`Type of videos supplied to function filterVideosByPublishedDate should be an ARRAY, but received ${(typeof videos).toUpperCase()}`);
   }
-
-  filter = filter || 'newest';
   
   let filterFunction;
 
-  switch(filter) {
-    case 'oldest':
-      filterFunction = (value1, value2) => {return value1 > value2};
-      break;
-    default:
-      filterFunction = (value1, value2) => {return value1 < value2};
+  switch (filter) {
+  case 'oldest':
+    filterFunction = (value1, value2) => { return value1 > value2; };
+    break;
+  default:
+    filterFunction = (value1, value2) => { return value1 < value2; };
   }
 
   for (let i = videos.length - 1; i >= 0; i--) {

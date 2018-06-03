@@ -5,6 +5,7 @@ const controllers = require('../controllers');
 
 router.route('/quick-rhymes')
   .post((req, res) => {
+
     let keyword = req.body.word.toLowerCase();
 
     controllers.wordInfo.fetchWordInfo(keyword)
@@ -26,10 +27,12 @@ router.route('/quick-rhymes')
       .catch(err => {
         res.status(400).send(err);
       });
+
   });
 
 router.route('/videos')
   .post((req, res) => {
+
     let { filter, maxResults } = req.body;
 
     controllers.youtube.fetchVideosByPlaylist('PLB7E22B02CFF47F35', maxResults)
@@ -43,6 +46,7 @@ router.route('/videos')
         console.log(error);
         res.status(400).send('Something went wrong while fetching videos: ', error);
       });
+      
   });
 
 module.exports = router;

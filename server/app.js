@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
  
 app.use('/fetch', routes.fetch);
+app.use('/tool', routes.tool)
 
 app.get('/*', (req, res) => {
   res.sendFile(`${_public}/index.html`);
