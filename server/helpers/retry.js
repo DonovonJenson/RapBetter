@@ -32,8 +32,8 @@ module.exports.retry = (attemptCB, numRetries, data, successCB, errorCB) => {
     We have to call attemptCB after the trial definition to start off the retry loop
   */
   let trial = (error) => {
+    errors.push(error);
     if (counter <= numRetries) {
-      errors.push(error);
       counter++;
       attemptCB(data, successCB, trial);
     } else {
