@@ -4,7 +4,7 @@ import axios from 'axios';
 import VideoPlayer from '../components/VideoPlayer';
 import VideoListEntry from '../components/VideoListEntry';
 
-export default class Home extends React.Component {
+export default class Videos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,13 @@ export default class Home extends React.Component {
 
   fetchVideos() {
     let { filter, maxResults } = this.state;
-    axios.post('/fetch/videos', {filter, maxResults})
+    axios.get('/fetch/videos', {
+      params: {
+        filter,
+        maxResults,
+        playlistId: 'PLB7E22B02CFF47F35'
+      }
+    })
       .then(results => {
         this.setState({
           videos: results.data

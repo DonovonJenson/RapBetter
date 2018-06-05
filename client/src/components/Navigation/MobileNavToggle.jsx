@@ -32,6 +32,7 @@ export default class MobileNavToggle extends React.Component {
       // set the offsetPosition to the currentOffset
       this.setState({offsetPosition: currentOffset});
     }
+    
     // toggle all active classes
     mobileNavToggle.classList.toggle('is-active');
     mobileNavFade.classList.toggle('is-active'); 

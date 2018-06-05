@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const controllers = require('../controllers');
+const middleware = require('../middleware');
 
 router.route('/quick-rhymes')
   .post((req, res) => {
@@ -31,16 +32,17 @@ router.route('/quick-rhymes')
   });
 
 router.route('/videos')
-  .post((req, res) => {
+  .get(middleware.cache.checkCacheForVideoPlaylist, (req, res) => {
 
-    let { filter, maxResults } = req.body;
+    let { filter, maxResults, playlistId } = req.query;
 
-    controllers.youtube.fetchVideosByPlaylist('PLB7E22B02CFF47F35', maxResults)
+    controllers.youtube.fetchVideosByPlaylist(playlistId, maxResults)
       .then(results => {
         return controllers.youtube.filterVideosByPublishedDate(results.data.items, filter);
       })
       .then(filteredVideos => {
-        res.status(201).send(filteredVideos);
+        req.udpateCache ? req.updateCache(playlistId, filteredVideos) : null;
+        res.status(200).send(filteredVideos);
       })
       .catch(error => {
         console.log(error);
