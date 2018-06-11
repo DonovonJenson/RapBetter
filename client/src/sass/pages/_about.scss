@@ -1,18 +1,33 @@
 .about-content-wrapper {
-  @include flex;
   @include align-center;
-  min-height: $about-content-wrapper-height;
+  @include flex;
+  @include perspective(100vh);
+  margin: 2vh 0;
+  min-height: $about-content-wrapper-height / 2;
   width: $about-content-wrapper-width;
 }
 
 .about-image {
+  @include perspective-preserve-3d;
+  @include perspective-rotate-y(-2deg);
+  @include nav-shadow;
   background: url(./../../public/images/donovonjenson.jpg) no-repeat;
   background-position: 50% 50%;
   background-size: 100% auto;
-  -webkit-filter: saturate(0%);
-  filter: saturate(0%);
-  min-height: $about-content-wrapper-height;
+  -webkit-filter: saturate(70%);
+  filter: saturate(70%);
+  transition: $long-transition;
+  transform-style: preserve-3d;
   width: $about-content-wrapper-width * 0.4;
+}
+
+.about-image.loaded {
+  @include perspective-rotate-y(0deg);
+}
+
+.about-image:hover {
+  -webkit-filter: saturate(100%);
+  filter: saturate(100%);
 }
 
 .about-text-wrapper {
@@ -20,17 +35,16 @@
   @include flex-column;
   @include align-center;
   @include justify-center;
-  min-height: $about-content-wrapper-height;
   padding: 0 $about-content-wrapper-width * 0.02;
   width: $about-content-wrapper-width * 0.6;
 }
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
 }
 
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .about-content-wrapper {
     @include flex-column;

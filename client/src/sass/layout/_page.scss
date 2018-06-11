@@ -13,7 +13,7 @@
   background: linear-gradient(to bottom, rgba(35, 35, 35, 1.0) -10%, rgba(50, 50, 50, 1.0) 50%, rgba(35, 35, 35, 1.0) 110%);
 }
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .page {
     min-height: 100vh - $navigation-height-mobile-landscape;
@@ -22,7 +22,7 @@
 }
 
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .page {
     min-height: 100vh - $navigation-height-mobile-portrait;

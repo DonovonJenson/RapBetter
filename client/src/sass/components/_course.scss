@@ -2,7 +2,7 @@
   @include flex;
   @include flex-column;
   @include align-center;
-  background-color: rgba(45, 45, 45, 1.0);
+  background-color: rgba(35, 35, 35, 1.0);
   text-align: center;
   transition: scale(1.2, 1.2);
   transition-duration: 400ms;
@@ -71,7 +71,7 @@
 }
 
 .course:hover .course-price-wrapper {
-  background-color: rgba(45, 45, 45, 1.0);
+  background-color: rgba(40, 40, 40, 1.0);
   width: $courses-content-wrapper-width * 0.37;
 }
 
@@ -127,18 +127,18 @@
   background-color: rgba(182, 161, 102, 1.0);
 }
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .course {
     margin: 2vh 0;
     flex-direction: row;
+    min-height: 75vh;
     width: 100vw;
     transition: $standard-transition;
   }
 
   .course:hover {
     @include std-box-shadow;
-    height: auto;
     width: 100vw;
     z-index: 2;
   }
@@ -199,7 +199,7 @@
 
 }
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .course {
     margin: 2vh 0;

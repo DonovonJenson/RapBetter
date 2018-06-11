@@ -84,9 +84,9 @@ export default class Jumbotron extends React.Component {
     let toggled = bannerWrapper.classList.contains('scrolled');
 
     // if the offsetHeight is past 1/3 the jumbotron, 
-      // if the scrolled class isn't toggled, toggle it on, else, do nothing
+    // if the scrolled class isn't toggled, toggle it on, else, do nothing
     // else 
-      // if the scrolled class is toggled, toggle it off, else, do nothing
+    // if the scrolled class is toggled, toggle it off, else, do nothing
     if (offsetHeight > (jumbotronHeight / 3)) {
       !toggled ? bannerWrapper.classList.toggle('scrolled') : null;
     } else {
@@ -139,4 +139,4 @@ export default class Jumbotron extends React.Component {
     );
 
   }
-};
+}

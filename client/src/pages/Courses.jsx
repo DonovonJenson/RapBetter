@@ -28,10 +28,10 @@ const courses = [
     price: '$15',
     title: 'Write Your First Verse'
   }
-]
+];
 
 
-const Home = (props) => {
+const Courses = (props) => {
 
   return (
 
@@ -66,7 +66,7 @@ const Home = (props) => {
 
   );
 
-}
+};
 
-export default Home;
+export default Courses;
 

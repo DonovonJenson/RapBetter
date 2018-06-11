@@ -39,6 +39,12 @@
   justify-content: space-between;
 }
 
+@mixin justify-evenly {
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
 @mixin justify-start {
   -webkit-box-pack: start;  // for Safari
   -ms-flex-pack: start;  // for IE
@@ -115,7 +121,16 @@
   transform: rotateX($value);
 }
 
+@mixin perspective-rotate-y($value) {
+  -webkit-transform: rotateY($value);
+  transform: rotateY($value);
+}
 
+@mixin translate($x: 0vw, $y: 0vh) {
+  -webkit-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  transform: translate($x, $y)
+}
 
 
 

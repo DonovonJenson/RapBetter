@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const controllers = require('../controllers');
+const middleware = require('../middleware');
 
 router.route('/quick-rhymes')
   .post((req, res) => {
+
     let keyword = req.body.word.toLowerCase();
 
     controllers.wordInfo.fetchWordInfo(keyword)
@@ -26,23 +28,27 @@ router.route('/quick-rhymes')
       .catch(err => {
         res.status(400).send(err);
       });
+
   });
 
 router.route('/videos')
-  .post((req, res) => {
-    let { filter, maxResults } = req.body;
+  .get(middleware.cache.checkCacheForVideoPlaylist, (req, res) => {
 
-    controllers.youtube.fetchVideosByPlaylist('PLB7E22B02CFF47F35', maxResults)
+    let { filter, maxResults, playlistId } = req.query;
+
+    controllers.youtube.fetchVideosByPlaylist(playlistId, maxResults)
       .then(results => {
         return controllers.youtube.filterVideosByPublishedDate(results.data.items, filter);
       })
       .then(filteredVideos => {
-        res.status(201).send(filteredVideos);
+        req.udpateCache ? req.updateCache(playlistId, filteredVideos) : null;
+        res.status(200).send(filteredVideos);
       })
       .catch(error => {
         console.log(error);
         res.status(400).send('Something went wrong while fetching videos: ', error);
       });
+      
   });
 
 module.exports = router;

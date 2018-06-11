@@ -35,7 +35,6 @@
   background-color: rgba(5, 5, 5, 0.0);
   display: block;
   height: 100vh;
-  margin-top: $navigation-height;
   opacity: 0;
   pointer-events: none;
   position: absolute;
@@ -102,7 +101,7 @@
 
 
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .mobile-nav-wrapper, .mobile-nav-toggle {
     height: $navigation-height-mobile-landscape / 2;
@@ -139,8 +138,15 @@
     margin-top: $navigation-height-mobile-landscape;
   }
 
-  .mobile-nav-content li {
+  .mobile-nav-content li a {
+    color: rgba(235, 235, 235, 0.0);
     font-size: 4.5vh;
+    transition: $standard-transition;
+    transition-delay: 0.2s;
+  }
+
+  .mobile-nav-menu.is-active .mobile-nav-content li a {
+    color: $text-primary-color;
   }
 
 }
@@ -149,7 +155,7 @@
 
 
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
 
   .mobile-nav-wrapper, .mobile-nav-toggle {
     height: $navigation-height-mobile-portrait / 2;
@@ -186,8 +192,15 @@
     margin-top: $navigation-height-mobile-portrait;
   }
 
-  .mobile-nav-content li {
+  .mobile-nav-content li a {
+    color: rgba(235, 235, 235, 0.0);
     font-size: 2.7vh;
+    transition: $standard-transition;
+    transition-delay: 0.2s;
+  }
+
+  .mobile-nav-menu.is-active .mobile-nav-content li a {
+    color: $text-primary-color;
   }
 
 }

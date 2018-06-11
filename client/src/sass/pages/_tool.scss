@@ -1,0 +1,245 @@
+.tool-wrapper {
+  @include flex;
+  background-color: rgba(35, 35, 35, 0.2);
+  min-height: 90vh;
+  width: 100vw;
+}
+
+.tool-word-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  background-color: rgba(35, 35, 35, 0.8);
+  min-width: 100vw * 0.35;
+}
+
+.tool-input-wrapper {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  min-width: 100vw * 0.35;
+  min-height: 20vh;
+}
+
+.tool-word-input {
+  background-color: rgba(35, 35, 35, 0.1);
+  border: none;
+  border-bottom: 2px solid;
+  border-color: rgba(135, 135, 135, 0.1);
+  color: rgba(235, 235, 235, 0.6);
+  font-size: $jumbotron-input-height / 2;
+  height: $jumbotron-input-height;
+  outline-color: rgba(35, 35, 35, 0.1);
+  padding: 0 0.5vw;
+  transition: $standard-transition;
+  width: 100vw * 0.30;
+}
+
+.tool-word-input:hover {
+  background-color: rgba(142, 121, 62, 0.1);
+  color: rgba(235, 235, 235, 0.8);
+}
+
+.tool-word-input:focus {
+  background-color: rgba(142, 121, 62, 0.2);
+  color: rgba(235, 235, 235, 0.9);
+  outline-color: rgba(35, 35, 35, 0.3);
+  outline-style: inset;
+}
+
+.tool-word-options-wrapper {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(25, 100, 50, 0.2);
+  height: 20vh;
+  width: 100vw * 0.35;
+}
+
+.tool-word-preview-wrapper {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(100, 25, 50, 0.2);
+  height: 30vh;
+  width: 100vw * 0.35;
+}
+
+.tool-player-wrapper {
+  @include flex;
+  @include flex-column;
+  min-width: 100vw * 0.65;
+}
+
+.tool-wordset-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(25, 50, 100, 0.2);
+  height: 20vh;
+}
+
+.wordset {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  @include perspective(100vh);
+  @include perspective-preserve-3d;
+  height: 20vh;
+  width: 100vw * 0.65;
+}
+
+.wordset.up {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(35, 35, 35, 0.4);
+  height: 5vh;
+  margin: 0.5vh 0;
+  width: 100vw * 0.65;
+
+  .wordset-list {
+    @include perspective-rotate-x(10deg);
+  }
+
+}
+
+.wordset.current {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(35, 35, 35, 0.2);
+  font-size: 2vh;
+  height: 7vh;
+  margin: 0.5vh 0;
+  width: 100vw * 0.65;
+}
+
+.wordset.down {
+  @include flex;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(35, 35, 35, 0.4);
+  height: 5vh;
+  margin: 0.5vh 0;
+  width: 100vw * 0.65;
+
+  .wordset-list {
+    @include perspective-rotate-x(-10deg);
+  }
+
+}
+
+.wordset-list {
+  @include flex;
+  @include align-center;
+  @include justify-evenly;
+  list-style: none;
+  width: 100vw * 0.65;
+}
+
+.wordset-item {
+  display: inline;
+  text-align: center;
+  width: (100vw * 0.65) * 0.25;
+}
+
+.tool-music-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  @include justify-center;
+  min-height: 70vh;
+  min-width: 100vw * 0.65;
+}
+
+.tool-video-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  @include justify-center;
+  background-color: rgba(35, 35, 35, 0.2);
+  min-height: 60vh;
+  min-width: 100vw * 0.65;
+}
+
+.tool-controller-wrapper {
+  @include flex;
+  @include flex-column;
+  @include align-center;
+  @include justify-center;
+  min-height: 10vh;
+  min-width: 100vw * 0.65;
+}
+
+
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+
+  .tool-wrapper {
+    @include flex-column;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  .tool-word-wrapper {
+    min-height: 40vh;
+    width: 100vw;
+  }
+
+  .tool-input-wrapper {
+    width: 100vw;
+  }
+
+  .tool-word-input {
+    width: 100vw;
+  }
+
+  .tool-player-wrapper {
+    min-height: 100vh - $navigation-height-mobile-landscape;
+    width: 100vw;
+  }
+
+  .tool-music-wrapper {
+
+  }
+
+  .tool-video-wrapper {
+    min-height: 60vh;
+  }
+
+}
+
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+
+  .tool-wrapper {
+    @include flex-column;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  .tool-word-wrapper {
+    min-height: 40vh;
+  }
+
+  .tool-input-wrapper {
+    width: 100vw;
+  }
+
+  .tool-word-input {
+    width: 100vw;
+  }
+
+  .tool-player-wrapper {
+    min-height: 100vh - $navigation-height-mobile-portrait;
+  }
+
+  .tool-music-wrapper {
+
+  }
+
+  .tool-video-wrapper {
+    min-height: 50vh;
+  }
+
+}

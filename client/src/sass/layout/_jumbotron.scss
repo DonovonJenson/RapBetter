@@ -160,7 +160,7 @@
   padding-right: 2.5vw;
 }
 
-@media screen and (orientation: landscape) and (max-width: 1200px) {
+@media screen and (orientation: landscape) and (max-width: 1024px) {
 
   .jumbotron {
     height: 100vh - $navigation-height-mobile-landscape;
@@ -202,7 +202,7 @@
 
 }
 
-@media screen and (orientation: portrait) and (max-width: 1200px) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
   .jumbotron {
     height: 100vh - $navigation-height-mobile-portrait;
     background-size: auto 100%;
