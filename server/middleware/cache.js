@@ -1,4 +1,4 @@
-const client = require('../redis');
+const client = require('../redis/client');
 
 module.exports.checkCacheForWordResults = (request, response, next) => {
   let { word } = request.query;
